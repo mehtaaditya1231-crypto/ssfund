@@ -1,0 +1,1293 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SS Value Plus Fund — value investing, built on conviction and focused on India.">
+  <title>SS Value Plus Fund</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231b2e2a'/%3E%3Cpath d='M18 40V23h8c6 0 10 3 10 8s-4 9-10 9h-8Zm7-5h2c2 0 4-1 4-4 0-2-2-3-4-3h-2v7Zm15 5V23h6v17h-6Z' fill='%23f4f0e7'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --paper: #f4f0e7;
+      --ink: #16211f;
+      --pine: #1b2e2a;
+      --sage: #b9c1a9;
+      --rust: #b45e3f;
+      --line: rgba(22, 33, 31, .18);
+      --pad: clamp(1.25rem, 4vw, 4.5rem)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      background-color: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background-color: #ffffff;
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit
+    }
+
+    ::selection {
+      background: var(--rust);
+      color: white
+    }
+
+    .serif {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400
+    }
+
+    .eyebrow {
+      font-size: .73rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 600
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line)
+    }
+
+    header {
+      position: fixed;
+      z-index: 50;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.15rem var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: width .45s, left .45s, top .45s, padding .45s, background .45s, border-radius .45s, box-shadow .45s;
+      background: linear-gradient(to bottom, rgba(244, 240, 231, .95), rgba(244, 240, 231, 0))
+    }
+
+    header.scrolled {
+      width: min(760px, calc(100% - 2rem));
+      left: 50%;
+      top: 1rem;
+      transform: translateX(-50%);
+      padding: .7rem .8rem .7rem 1rem;
+      background: rgba(244, 240, 231, .88);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(22, 33, 31, .12);
+      border-radius: 99px;
+      box-shadow: 0 12px 40px rgba(22, 33, 31, .08)
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-weight: 600;
+      letter-spacing: .04em
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: "Newsreader", serif;
+      font-size: .84rem
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      font-size: .82rem
+    }
+
+    nav a {
+      position: relative
+    }
+
+    nav a:not(.nav-cta):after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: .3s
+    }
+
+    nav a:hover:after {
+      transform: scaleX(1);
+      transform-origin: left
+    }
+
+    .nav-cta {
+      padding: .68rem 1rem;
+      background: var(--pine);
+      color: var(--paper);
+      border-radius: 99px
+    }
+
+    .nav-progress {
+      display: none;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: .08em;
+      color: #5f6a67
+    }
+
+    .scrolled .nav-progress {
+      display: inline
+    }
+
+    .scrolled nav {
+      gap: 1rem
+    }
+
+    .scrolled nav>a:not(.nav-cta) {
+      display: none
+    }
+
+    .hero {
+      min-height: 100svh;
+      padding: 9rem var(--pad) 3rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, .7fr);
+      gap: 3rem;
+      align-items: end;
+      position: relative
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 15%;
+      right: -7rem;
+      width: clamp(300px, 37vw, 610px);
+      height: clamp(300px, 37vw, 610px);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      z-index: -1
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      top: 24%;
+      right: 1%;
+      width: clamp(190px, 25vw, 400px);
+      height: clamp(190px, 25vw, 400px);
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #d9ddca, var(--sage) 52%, #7b8b78);
+      filter: saturate(.75);
+      z-index: -1
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 10.7vw, 10.5rem);
+      line-height: .78;
+      letter-spacing: -.07em;
+      margin: 1.2rem 0 2.5rem;
+      max-width: 1050px
+    }
+
+    .hero-title span {
+      display: block
+    }
+
+    .hero-title .indent {
+      padding-left: .7em;
+      color: var(--rust);
+      font-style: italic
+    }
+
+    .hero-foot {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: end
+    }
+
+    .hero-intro {
+      font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+      max-width: 480px
+    }
+
+    .round-link {
+      width: 8.5rem;
+      height: 8.5rem;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      font-size: .82rem;
+      transition: .35s;
+      margin-left: auto
+    }
+
+    .round-link:hover {
+      background: var(--ink);
+      color: var(--paper);
+      transform: rotate(-7deg)
+    }
+
+    .hero-side {
+      align-self: center;
+      padding-top: 15rem
+    }
+
+    .hero-side .index {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1rem
+    }
+
+    .hero-side p {
+      max-width: 18rem;
+      font-size: .9rem;
+      color: #495552
+    }
+
+    section {
+      padding: clamp(5rem, 10vw, 9rem) var(--pad)
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: .55fr 1.45fr;
+      gap: clamp(2rem, 8vw, 8rem);
+      border-top: 1px solid rgba(0, 0, 0, .15);
+      background-color: #fff;
+      color: #000;
+      position: relative;
+      z-index: 2
+    }
+
+    .intro .eyebrow {
+      color: #000;
+      opacity: .6
+    }
+
+    .intro-copy {
+      font-size: clamp(2.3rem, 5.2vw, 5.4rem);
+      line-height: 1.03;
+      letter-spacing: -.045em;
+      margin: 0;
+      color: #000
+    }
+
+    .intro-copy em {
+      color: #D62828;
+      font-style: italic;
+      font-weight: 400
+    }
+
+    .intro ::selection {
+      background: #000;
+      color: #fff
+    }
+
+    .small-note {
+      align-self: end;
+      max-width: 20rem;
+      font-size: .9rem
+    }
+
+    .intro .small-note {
+      color: #000;
+      opacity: .65
+    }
+
+    .philosophy {
+      background-color: #000000;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden
+    }
+
+    .philosophy ::selection {
+      background: #ffffff;
+      color: #000000
+    }
+
+    .philosophy:after {
+      content: "SS";
+      position: absolute;
+      right: -.04em;
+      bottom: -.35em;
+      font: 400 clamp(18rem, 47vw, 48rem)/1 "Newsreader", serif;
+      color: rgba(220, 235, 218, .07);
+      pointer-events: none
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+      position: relative;
+      z-index: 2
+    }
+
+    .section-head h2 {
+      font-size: clamp(3rem, 7vw, 7.5rem);
+      line-height: .9;
+      letter-spacing: -.055em;
+      margin: 0;
+      max-width: 900px;
+      color: #FFFFFF
+    }
+
+    .section-head p {
+      max-width: 320px;
+      color: rgba(255, 255, 255, .68);
+      font-size: .9rem
+    }
+
+    .principles {
+      position: relative;
+      z-index: 2
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 70px 1fr minmax(220px, .55fr);
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+      align-items: start
+    }
+
+    .principle .eyebrow {
+      color: #FFFFFF
+    }
+
+    .principle h3 {
+      margin: 0;
+      font: 400 clamp(1.7rem, 3vw, 3.4rem)/1 "Newsreader", serif;
+      color: #FFFFFF
+    }
+
+    .principle p {
+      margin: 0;
+      color: rgba(255, 255, 255, .68);
+      max-width: 340px;
+      font-size: .92rem
+    }
+
+    .lens {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(3rem, 9vw, 9rem);
+      background-color: #FFFFFF;
+      color: #000000;
+      position: relative;
+      z-index: 2
+    }
+
+    .lens ::selection {
+      background: #000000;
+      color: #ffffff
+    }
+
+    .lens .eyebrow {
+      color: #000000
+    }
+
+    .lens-title {
+      position: sticky;
+      top: 8rem;
+      height: max-content
+    }
+
+    .lens-title h2 {
+      font-size: clamp(3.4rem, 7vw, 7rem);
+      line-height: .85;
+      letter-spacing: -.055em;
+      margin: 1rem 0;
+      color: #000000
+    }
+
+    .lens-title h2 em {
+      color: #D62828;
+      font-style: italic;
+      font-weight: 400
+    }
+
+    .criteria {
+      counter-reset: item
+    }
+
+    .criterion {
+      counter-increment: item;
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(0, 0, 0, .16);
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 1rem
+    }
+
+    .criterion:before {
+      content: "0" counter(item);
+      font-size: .75rem;
+      letter-spacing: .1em;
+      color: #000000;
+      padding-top: .4rem
+    }
+
+    .criterion h3 {
+      font: 400 clamp(1.8rem, 3vw, 3rem)/1 "Newsreader", serif;
+      margin: 0 0 .7rem;
+      color: #000000
+    }
+
+    .criterion p {
+      margin: 0;
+      max-width: 500px;
+      color: rgba(0, 0, 0, .62)
+    }
+
+    .quote {
+      padding-top: 2rem;
+      position: relative;
+      z-index: 3;
+      background-color: #FFFFFF;
+    }
+
+    .quote-inner {
+      background-color: #F5E1DE;
+      color: #000000;
+      border-radius: min(3vw, 2rem);
+      padding: clamp(2rem, 7vw, 7rem);
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      transform: scale(var(--quote-scale, .93));
+      transform-origin: center;
+      transition: border-radius .2s
+    }
+
+    .quote-inner ::selection {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .quote-inner:before {
+      content: "“";
+      position: absolute;
+      right: 3%;
+      top: -.2em;
+      font: 400 clamp(15rem, 40vw, 40rem)/1 "Newsreader", serif;
+      color: rgba(214, 40, 40, .07);
+      transform: translateY(var(--quote-mark, 0));
+      transition: transform .1s linear
+    }
+
+    .quote blockquote {
+      font: 400 clamp(2.2rem, 5.2vw, 5.5rem)/1.02 "Newsreader", serif;
+      letter-spacing: -.04em;
+      max-width: 1200px;
+      margin: 0;
+      position: relative;
+      color: #000000;
+    }
+
+    .quote-word {
+      display: inline-block;
+      opacity: .1;
+      transform: translateY(.55em) rotate(1.5deg);
+      filter: blur(5px);
+      transition: opacity .65s, transform .65s, filter .65s
+    }
+
+    .quote-word.assembled {
+      opacity: 1;
+      transform: none;
+      filter: none
+    }
+
+    .quote cite {
+      font-style: normal;
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: .7s .35s;
+      color: rgba(0, 0, 0, .72);
+    }
+
+    .quote cite.assembled {
+      opacity: 1;
+      transform: none
+    }
+
+    .quote cite:before {
+      content: "";
+      width: 3rem;
+      height: 1px;
+      background: rgba(0, 0, 0, .72);
+    }
+
+    .team-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 4rem
+    }
+
+    .team-head h2 {
+      font-size: clamp(3.8rem, 8vw, 8rem);
+      line-height: .85;
+      letter-spacing: -.06em;
+      margin: 0;
+      color: #FFFFFF
+    }
+
+    .team-head p {
+      max-width: 410px;
+      margin-left: auto;
+      color: rgba(255, 255, 255, .68)
+    }
+
+    .people {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid rgba(255, 255, 255, .18)
+    }
+
+    .person {
+      padding: 2rem 0
+    }
+
+    .person:first-child {
+      padding-right: clamp(2rem, 5vw, 5rem);
+      border-right: 1px solid rgba(255, 255, 255, .18)
+    }
+
+    .person:last-child {
+      padding-left: clamp(2rem, 5vw, 5rem)
+    }
+
+    .team-wrap .eyebrow {
+      color: rgba(255, 255, 255, .58)
+    }
+
+    .portrait {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1/1.14;
+      position: relative;
+      margin-bottom: 1.75rem;
+      background: transparent;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      display: block;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+      transition: transform .6s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .person:hover .portrait img {
+      transform: translateY(-5px) scale(1.018)
+    }
+
+    .person h3 {
+      font: 400 clamp(2rem, 3.5vw, 3.7rem)/1 "Newsreader", serif;
+      margin: .4rem 0;
+      color: #FFFFFF
+    }
+
+    .person p {
+      max-width: 520px;
+      color: rgba(255, 255, 255, .68)
+    }
+
+    main {
+      position: relative;
+      z-index: 2
+    }
+
+    .footer-region {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      background-color: #ffffff;
+    }
+
+    .site-footer,
+    .contact {
+      width: 100%;
+      background-color: #FFFFFF;
+      color: #000000;
+      padding: clamp(4.5rem, 7vw, 6.5rem) var(--pad) clamp(20px, 3vw, 40px);
+      border-radius: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      box-shadow: none
+    }
+
+    .footer-sticky {
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .contact ::selection {
+      background: #000000;
+      color: #ffffff
+    }
+
+    .contact-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: end
+    }
+
+    .contact .eyebrow {
+      color: rgba(0, 0, 0, .6);
+      opacity: 1
+    }
+
+    .contact-top .eyebrow {
+      display: block;
+      margin-bottom: clamp(24px, 3vw, 48px)
+    }
+
+    .contact h2 {
+      font-size: clamp(4rem, 10vw, 10rem);
+      line-height: .78;
+      letter-spacing: -.07em;
+      margin: 0;
+      color: #000000
+    }
+
+    .contact .round-link {
+      border-color: #000000;
+      color: #000000;
+      background-color: transparent
+    }
+
+    .contact .round-link:hover {
+      background-color: #000000;
+      color: #FFFFFF;
+      border-color: #000000
+    }
+
+    .contact-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      padding: clamp(3rem, 5vw, 4.5rem) 0 2.5rem;
+      border-top: 1px solid rgba(0, 0, 0, .16);
+      border-bottom: 1px solid rgba(0, 0, 0, .16)
+    }
+
+    .contact-meta p {
+      margin: .4rem 0;
+      color: #000000
+    }
+
+    .contact-meta p a {
+      color: #000000
+    }
+
+    .legal {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-top: 1.5rem;
+      font-size: .75rem;
+      color: rgba(0, 0, 0, .6);
+      opacity: 1
+    }
+
+    .legal a {
+      color: rgba(0, 0, 0, .6);
+      transition: color .2s ease
+    }
+
+    .legal a:hover {
+      color: #000000
+    }
+
+    .legal-links {
+      display: flex;
+      gap: 1.5rem
+    }
+
+    #team {
+      position: relative;
+      z-index: 4;
+      background-color: #000000;
+      color: #FFFFFF
+    }
+
+    .lens {
+      position: relative;
+      z-index: 2;
+      background-color: #FFFFFF
+    }
+
+    .philosophy {
+      z-index: 3
+    }
+
+    .lens {
+      background-color: #FFFFFF;
+      border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
+      margin-top: -2rem
+    }
+
+    .team-wrap {
+      position: relative;
+      z-index: 4;
+      background-color: #000000;
+      color: #FFFFFF;
+      border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
+      margin-top: -2rem
+    }
+
+    .team-wrap ::selection {
+      background: #ffffff;
+      color: #000000
+    }
+
+    .cursor-orb {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      z-index: 90;
+      pointer-events: none;
+      display: grid;
+      place-items: center;
+      font-size: .67rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(.65);
+      transition: opacity .2s, transform .2s;
+      mix-blend-mode: multiply
+    }
+
+    .cursor-orb.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1)
+    }
+
+    [data-cursor] {
+      transition: transform .25s ease
+    }
+
+    .intro-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: var(--pine);
+      color: var(--paper);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      transition: clip-path 1s cubic-bezier(.76, 0, .24, 1);
+      clip-path: inset(0 0 0 0)
+    }
+
+    .intro-screen.exit {
+      clip-path: inset(0 0 100% 0)
+    }
+
+    .intro-emblem {
+      position: relative;
+      width: clamp(150px, 19vw, 260px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center
+    }
+
+    .intro-emblem svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg)
+    }
+
+    .intro-emblem circle {
+      fill: none;
+      stroke: rgba(244, 240, 231, .9);
+      stroke-width: .6;
+      stroke-dasharray: 302;
+      stroke-dashoffset: 302;
+      animation: drawCircle 1.05s .15s cubic-bezier(.65, 0, .35, 1) forwards
+    }
+
+    .intro-monogram {
+      font: 400 clamp(3.5rem, 8vw, 7rem)/1 "Newsreader", serif;
+      letter-spacing: -.08em;
+      opacity: 0;
+      transform: scale(.85);
+      animation: markIn .7s .45s forwards
+    }
+
+    .intro-name {
+      position: absolute;
+      bottom: 8vh;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: .7rem;
+      opacity: 0;
+      animation: fadeIn .5s 1s forwards
+    }
+
+    @keyframes drawCircle {
+      to {
+        stroke-dashoffset: 0
+      }
+    }
+
+    @keyframes markIn {
+      to {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: .7
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s, transform .8s
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(max-width:800px) {
+      header {
+        padding-top: 1rem
+      }
+
+      header.scrolled {
+        width: calc(100% - 1rem);
+        top: .5rem
+      }
+
+      .brand span:last-child {
+        display: none
+      }
+
+      nav a:not(.nav-cta) {
+        display: none
+      }
+
+      .nav-progress,
+      .scrolled .nav-progress {
+        display: inline
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 8rem;
+        align-content: end
+      }
+
+      .hero-side {
+        display: none
+      }
+
+      .hero-title {
+        font-size: clamp(4rem, 19vw, 7rem)
+      }
+
+      .hero-foot {
+        grid-template-columns: 1fr auto
+      }
+
+      .round-link {
+        width: 6.7rem;
+        height: 6.7rem
+      }
+
+      .intro,
+      .lens {
+        grid-template-columns: 1fr
+      }
+
+      .small-note {
+        margin-top: 2rem
+      }
+
+      .section-head {
+        display: block
+      }
+
+      .section-head p {
+        margin-top: 2rem
+      }
+
+      .principle {
+        grid-template-columns: 40px 1fr
+      }
+
+      .principle p {
+        grid-column: 2
+      }
+
+      .lens-title {
+        position: static
+      }
+
+      .team-head {
+        grid-template-columns: 1fr
+      }
+
+      .team-head p {
+        margin-left: 0
+      }
+
+      .people {
+        grid-template-columns: 1fr
+      }
+
+      .person:first-child {
+        padding-right: 0;
+        border-right: 0
+      }
+
+      .person:last-child {
+        padding-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, .18)
+      }
+
+      .contact-top {
+        grid-template-columns: 1fr
+      }
+
+      .contact-meta {
+        grid-template-columns: 1fr
+      }
+
+      .legal {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem
+      }
+
+      .legal-links {
+        flex-wrap: wrap;
+        gap: 1.25rem
+      }
+
+      .quote-inner {
+        min-height: 60vh
+      }
+
+      .footer-region {
+        height: auto;
+        min-height: 0;
+      }
+
+      .footer-sticky {
+        position: relative;
+        bottom: auto;
+        height: auto;
+        min-height: 0;
+      }
+
+      .cursor-orb {
+        display: none
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-region {
+        height: auto;
+        min-height: 0;
+      }
+
+      .footer-sticky {
+        position: relative;
+        bottom: auto;
+        height: auto;
+        min-height: 0;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      .reveal,
+      .quote-word,
+      .quote cite {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none
+      }
+
+      * {
+        animation: none !important
+      }
+
+      .intro-screen {
+        display: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="intro-screen" aria-hidden="true">
+    <div class="intro-emblem"><svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="48" />
+      </svg><span class="intro-monogram">SS</span></div><span class="intro-name">Value Plus Fund</span>
+  </div>
+  <div class="cursor-orb" aria-hidden="true">View</div>
+  <header id="header">
+    <a class="brand" href="#top"><span class="brand-mark">SS</span><span>VALUE PLUS FUND</span></a>
+    <nav aria-label="Primary navigation">
+      <span class="nav-progress" aria-live="polite">01 — 05</span><a href="#about">The Fund</a><a
+        href="#approach">Approach</a><a href="#team">People</a><a class="nav-cta" data-cursor="Open"
+        href="#contact">Start a conversation</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" data-section="01">
+      <div>
+        <p class="eyebrow">Sneh Sagar Wealth Management LLP · India</p>
+        <h1 class="hero-title serif"><span>Value, with</span><span class="indent">conviction.</span></h1>
+        <div class="hero-foot">
+          <p class="hero-intro">A focused investment fund seeking enduring value in India’s small- and mid-cap
+            businesses.</p>
+          <a class="round-link" data-cursor="Scroll" href="#about">Discover <span aria-hidden="true">↘</span></a>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <div class="index"><span class="eyebrow">Perspective</span><span>01—04</span></div>
+        <p>We look past the noise of the market to understand the substance of a business—and the people building it.
+        </p>
+      </aside>
+    </section>
+
+    <section class="intro reveal" id="about" data-section="02">
+      <div><span class="eyebrow">The fund / 01</span>
+        <p class="small-note">For investors who believe meaningful outcomes are built through patience, discipline and
+          independent thinking.</p>
+      </div>
+      <h2 class="intro-copy serif">We invest in businesses the market may be <em>underestimating today</em>—and stay
+        invested as their true value unfolds.</h2>
+    </section>
+
+    <section class="philosophy" id="approach" data-section="03">
+      <div class="section-head reveal">
+        <h2 class="serif">A clearer way<br>of seeing value.</h2>
+        <p>Our approach is grounded in research, guided by fundamentals and measured over years—not quarters.</p>
+      </div>
+      <div class="principles">
+        <article class="principle reveal"><span class="eyebrow">01</span>
+          <h3>Understand the business</h3>
+          <p>We begin with the economics of the business: how it creates value, where it is defensible and what could
+            change.</p>
+        </article>
+        <article class="principle reveal"><span class="eyebrow">02</span>
+          <h3>Back capable people</h3>
+          <p>We seek management teams with integrity, intelligent capital allocation and the ambition to build enduring
+            institutions.</p>
+        </article>
+        <article class="principle reveal"><span class="eyebrow">03</span>
+          <h3>Buy with a margin of safety</h3>
+          <p>Price matters. We invest when our estimate of intrinsic value offers room for uncertainty and meaningful
+            upside.</p>
+        </article>
+        <article class="principle reveal"><span class="eyebrow">04</span>
+          <h3>Allow time to work</h3>
+          <p>When the thesis remains intact, patience can become an advantage. We give strong businesses time to
+            compound.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lens">
+      <div class="lens-title reveal"><span class="eyebrow">Our lens / 02</span>
+        <h2 class="serif">What we<br><em>look for.</em></h2>
+      </div>
+      <div class="criteria">
+        <article class="criterion reveal">
+          <div>
+            <h3>Durable fundamentals</h3>
+            <p>Sound balance sheets, resilient cash flows and business models that can hold their ground across cycles.
+            </p>
+          </div>
+        </article>
+        <article class="criterion reveal">
+          <div>
+            <h3>Room to grow</h3>
+            <p>Businesses participating in long structural opportunities, with the ability to reinvest capital
+              productively.</p>
+          </div>
+        </article>
+        <article class="criterion reveal">
+          <div>
+            <h3>Aligned leadership</h3>
+            <p>Promoters and management teams whose decisions reflect long-term ownership rather than short-term optics.
+            </p>
+          </div>
+        </article>
+        <article class="criterion reveal">
+          <div>
+            <h3>A meaningful discount</h3>
+            <p>A gap between market price and our assessment of value, supported by research rather than sentiment.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote" data-section="04">
+      <div class="quote-inner reveal">
+        <blockquote>Our edge is not predicting every turn. It is knowing what we own, why we own it, and when patience
+          deserves to be rewarded.</blockquote><cite>SS Value Plus Fund</cite>
+      </div>
+    </section>
+
+    <section id="team" class="team-wrap" data-section="04">
+      <div class="team-head reveal">
+        <h2 class="serif">Long-term<br>thinkers.</h2>
+        <p>The fund is led by investors who combine fundamental research with the perspective to remain independent when
+          markets become distracted.</p>
+      </div>
+      <div class="people">
+        <article class="person reveal" data-cursor="View">
+          <div class="portrait"><img src="assets/jay-ostwal.png" alt="Jay Ostwal - Fund Leadership" width="903"
+              height="1024" loading="lazy"></div><span class="eyebrow">Fund leadership</span>
+          <h3>Jay Ostwal</h3>
+          <p>Focused on identifying overlooked small- and mid-cap businesses where quality, opportunity and valuation
+            come together.</p>
+        </article>
+        <article class="person reveal" data-cursor="View">
+          <div class="portrait"><img src="assets/hemant-ostwal.png" alt="Hemant Ostwal - Fund Leadership" width="911"
+              height="1024" loading="lazy"></div><span class="eyebrow">Fund leadership</span>
+          <h3>Hemant Ostwal</h3>
+          <p>Bringing a disciplined approach to research, risk and portfolio construction, with a shared belief in
+            long-term value creation.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <section class="footer-region">
+    <footer class="footer-sticky site-footer contact" id="contact" data-section="05">
+      <div class="contact-top reveal">
+        <div><span class="eyebrow">Start a conversation</span>
+          <h2 class="serif">Let’s talk<br>value.</h2>
+        </div><a class="round-link" href="mailto:info@ssvalueplus.com">Write to us <span
+            aria-hidden="true">↗</span></a>
+      </div>
+      <div class="contact-meta reveal">
+        <div><span class="eyebrow">Email</span>
+          <p><a href="mailto:info@ssvalueplus.com">info@ssvalueplus.com</a></p>
+        </div>
+        <div><span class="eyebrow">Minimum investment</span>
+          <p>₹1 crore</p>
+        </div>
+        <div><span class="eyebrow">Focus</span>
+          <p>Indian public equities</p>
+        </div>
+      </div>
+      <div class="legal"><span>© 2026 Sneh Sagar Wealth Management LLP</span>
+        <div class="legal-links"><a href="#">Disclaimer</a><a href="#">Privacy</a><a href="#">Terms</a></div><span>Past
+          performance is not indicative of future results.</span>
+      </div>
+    </footer>
+  </section>
+  <script>
+    const intro = document.querySelector('.intro-screen');
+    setTimeout(() => { intro.classList.add('exit'); setTimeout(() => intro.remove(), 1050) }, 1750);
+    const header = document.getElementById('header'), progress = document.querySelector('.nav-progress');
+    const sections = [...document.querySelectorAll('[data-section]')];
+    const onScroll = () => {
+      header.classList.toggle('scrolled', scrollY > 80);
+      let active = '01'; sections.forEach(s => { if (s.getBoundingClientRect().top < innerHeight * .48) active = s.dataset.section }); progress.textContent = `${active} — 05`;
+      const q = document.querySelector('.quote'), box = document.querySelector('.quote-inner'); if (q && box) { const r = q.getBoundingClientRect(), p = Math.max(0, Math.min(1, (innerHeight - r.top) / (innerHeight + r.height * .35))); box.style.setProperty('--quote-scale', (.93 + p * .07).toFixed(3)); box.style.setProperty('--quote-mark', `${(p - .5) * -45}px`); }
+    }; addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target) } }), { threshold: .12 }); document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    const quote = document.querySelector('.quote blockquote'), words = quote.textContent.trim().split(/\s+/); quote.innerHTML = words.map(w => `<span class="quote-word">${w}&nbsp;</span>`).join('');
+    const quoteIO = new IntersectionObserver(([e]) => { if (e.isIntersecting) { document.querySelectorAll('.quote-word').forEach((w, i) => setTimeout(() => w.classList.add('assembled'), i * 42)); setTimeout(() => document.querySelector('.quote cite').classList.add('assembled'), words.length * 42); quoteIO.disconnect() } }, { threshold: .35 }); quoteIO.observe(quote);
+    if (matchMedia('(pointer:fine)').matches) { const orb = document.querySelector('.cursor-orb'); let x = 0, y = 0, tx = 0, ty = 0; addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY }); const follow = () => { x += (tx - x) * .18; y += (ty - y) * .18; orb.style.left = x + 'px'; orb.style.top = y + 'px'; requestAnimationFrame(follow) }; follow(); document.querySelectorAll('[data-cursor]').forEach(el => { el.addEventListener('mouseenter', () => { orb.textContent = el.dataset.cursor; orb.classList.add('active') }); el.addEventListener('mouseleave', () => { orb.classList.remove('active'); el.style.transform = '' }); el.addEventListener('mousemove', e => { const r = el.getBoundingClientRect(); el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .045}px,${(e.clientY - r.top - r.height / 2) * .045}px)` }) }) }
+  </script>
+</body>
+
+</html>

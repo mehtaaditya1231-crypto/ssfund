@@ -1,0 +1,14 @@
+{
+  "components": {
+    "immersive-full-screen-nav": {
+      "version": "1.1.0",
+      "installedAt": "2026-09-28T09:57:56.133Z",
+      "files": {
+        "src/components/effects/immersive-full-screen-nav/index.tsx": "sha256:90280100776be4e361ee9a36322686999fb89a230a4ff6625243202cf87a8f94",
+        "src/components/effects/immersive-full-screen-nav/CustomNavbar.tsx": "sha256:a951c3756a5231137ea0c5bd611534fd1dda485096927dad9bf9944a44c26f38",
+        "src/components/effects/immersive-full-screen-nav/FullscreenNav.tsx": "sha256:560c00f0eeacaa0971eea1db743e2458813c7d02a72b700f5a281e9ff733bc88",
+        "src/components/effects/immersive-full-screen-nav/useFocusTrap.ts": "sha256:a572a06a74a66e3482faf168ebcdae23f45317123345de10f681dc70c0fa2e81"
+      }
+    }
+  }
+}
