@@ -212,8 +212,8 @@ section {
 }
 
 .intro-copy em {
-  color: #D62828;
-  font-style: italic;
+  color: #000000;
+  font-style: normal;
   font-weight: 400;
 }
 
@@ -345,8 +345,8 @@ section {
 }
 
 .lens-title h2 em {
-  color: #D62828;
-  font-style: italic;
+  color: #000000;
+  font-style: normal;
   font-weight: 400;
 }
 
