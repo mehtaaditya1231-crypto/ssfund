@@ -1,6 +1,6 @@
-# SS Value Plus Fund — Antigravity handoff
+# Sneh Sagar Wealth Management LLP — Antigravity handoff
 
-This is the complete static website currently deployed for SS Value Plus Fund.
+This is the complete static website currently deployed for Sneh Sagar Wealth Management LLP.
 
 ## Open it in Antigravity
 

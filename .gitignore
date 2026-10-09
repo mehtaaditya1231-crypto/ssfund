@@ -31,3 +31,4 @@ build
 .vscode/*
 !.vscode/extensions.json
 Thumbs.db
+.vercel

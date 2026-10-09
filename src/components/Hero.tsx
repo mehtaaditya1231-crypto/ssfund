@@ -76,7 +76,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="hero" data-section="01" aria-label="SS Value Plus Fund Hero">
+    <section className="hero" data-section="01" aria-label="Sneh Sagar Wealth Management LLP Hero">
       <div className="hero-content">
         <p className="hero-label" ref={labelRef}>
           VALUE INVESTING · INDIA FOCUSED

@@ -78,8 +78,8 @@ export default function App() {
 
   return (
     <>
-      {/* Immersive Fullscreen Navbar */}
       <ImmersiveFullscreenNav
+        agencyName="Sneh Sagar Wealth Management LLP"
         overlayBg="#000000"
         headerOpenColor="#FFFFFF"
         linkColor="#FFFFFF"
@@ -184,7 +184,7 @@ export default function App() {
             <blockquote>
               Our edge is not predicting every turn. It is knowing what we own, why we own it, and when patience deserves to be rewarded.
             </blockquote>
-            <cite>SS Value Plus Fund</cite>
+            <cite>Sneh Sagar Wealth Management LLP</cite>
           </div>
         </section>
 

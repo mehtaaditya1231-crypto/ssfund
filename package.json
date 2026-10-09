@@ -1,7 +1,7 @@
 {
   "name": "ssfundnew",
   "version": "1.0.0",
-  "description": "This is the complete static website currently deployed for SS Value Plus Fund.",
+  "description": "This is the complete static website currently deployed for Sneh Sagar Wealth Management LLP.",
   "type": "module",
   "scripts": {
     "dev": "vite",

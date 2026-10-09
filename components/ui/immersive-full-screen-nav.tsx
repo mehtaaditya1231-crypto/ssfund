@@ -110,7 +110,7 @@ export default function ImmersiveFullscreenNav({
   openDuration = 1.1,
   closeDuration = 0.9,
   ease = "power4.inOut",
-  agencyName = "SS VALUE PLUS FUND",
+  agencyName = "Sneh Sagar Wealth Management LLP",
   tagline = "Value investing, built on conviction.",
   location = "India",
   links = DEFAULT_LINKS,
@@ -403,15 +403,15 @@ export default function ImmersiveFullscreenNav({
           }}
           className="flex items-center gap-3 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current rounded-full"
           style={{ color: currentHeaderColor }}
-          aria-label="SS Value Plus Fund home"
+          aria-label="Sneh Sagar Wealth Management LLP home"
         >
           <span
-            className="w-[30px] h-[30px] rounded-full border border-current flex items-center justify-center font-serif text-[0.84rem] transition-colors duration-300 select-none"
+            className="w-[30px] h-[30px] rounded-full border border-current flex items-center justify-center font-serif text-[0.84rem] transition-colors duration-300 select-none shrink-0"
             style={{ fontFamily: '"Newsreader", Georgia, serif' }}
           >
             SS
           </span>
-          <span className="font-semibold tracking-[0.04em] text-[0.92rem] transition-colors duration-300 select-none">
+          <span className="font-semibold tracking-[0.02em] sm:tracking-[0.04em] text-[0.82rem] sm:text-[0.92rem] transition-colors duration-300 select-none">
             {agencyName}
           </span>
         </a>
