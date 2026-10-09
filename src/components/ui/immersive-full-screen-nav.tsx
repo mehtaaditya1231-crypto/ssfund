@@ -24,6 +24,8 @@ export interface ImmersiveNavProps {
   tagline?: string;
   location?: string;
   links?: { label: string; href: string }[];
+  currentPath?: string;
+  onNavigate?: (href: string) => void;
 }
 
 const DEFAULT_LINKS = [
@@ -114,6 +116,8 @@ export default function ImmersiveFullscreenNav({
   tagline = "Value investing, built on conviction.",
   location = "India",
   links = DEFAULT_LINKS,
+  currentPath = "/",
+  onNavigate,
 }: ImmersiveNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
@@ -151,12 +155,14 @@ export default function ImmersiveFullscreenNav({
     window.addEventListener("scroll", checkDarkSection, { passive: true });
     window.addEventListener("resize", checkDarkSection, { passive: true });
     checkDarkSection();
+    const timer = setTimeout(checkDarkSection, 30);
 
     return () => {
       window.removeEventListener("scroll", checkDarkSection);
       window.removeEventListener("resize", checkDarkSection);
+      clearTimeout(timer);
     };
-  }, []);
+  }, [currentPath]);
 
   // Lock and unlock body scroll
   useEffect(() => {
@@ -352,17 +358,18 @@ export default function ImmersiveFullscreenNav({
     e.preventDefault();
 
     onCloseMenu(() => {
-      // Handle smooth navigation after closing overlay
+      if (onNavigate) {
+        onNavigate(targetHref);
+        return;
+      }
+
       if (targetHref === "/" || targetHref === "#top") {
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
 
       if (targetHref === "/founders" || targetHref === "/founders.html") {
-        const teamEl = document.getElementById("founders") || document.getElementById("team");
-        if (teamEl) {
-          teamEl.scrollIntoView({ behavior: "smooth" });
-        }
+        window.location.href = "/founders";
         return;
       }
 
@@ -398,7 +405,14 @@ export default function ImmersiveFullscreenNav({
           href="#top"
           onClick={(e) => {
             if (isOpen) {
-              handleLinkClick(e, "#top");
+              handleLinkClick(e, "/");
+            } else {
+              e.preventDefault();
+              if (onNavigate) {
+                onNavigate("/");
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
             }
           }}
           className="flex items-center gap-3 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current rounded-full"

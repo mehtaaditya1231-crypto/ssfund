@@ -940,3 +940,25 @@ main {
     display: none;
   }
 }
+
+/* ==========================================================================
+   Founders Dedicated Page Styles
+   ========================================================================== */
+.founders-main {
+  background-color: #000000;
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.founders-main .team-wrap {
+  margin-top: 0;
+  border-radius: 0;
+  padding-top: calc(6.5rem + env(safe-area-inset-top, 0px));
+}
+
+.founders-main .quote {
+  border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
+  margin-top: -2rem;
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
