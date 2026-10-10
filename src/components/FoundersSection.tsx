@@ -18,7 +18,7 @@ export default function FoundersSection() {
       <div className="people">
         <article className="person reveal">
           <div className="portrait">
-            <img src="/assets/jay-ostwal.png" alt="Jay Ostwal - Fund Leadership" width="903" height="1024" loading="lazy" />
+            <img src="/assets/founders/jay-ostwal-transparent.png" alt="Jay Ostwal - Fund Leadership" width="320" height="380" loading="lazy" />
           </div>
           <span className="eyebrow">Fund leadership</span>
           <h3>Jay Ostwal</h3>
@@ -26,7 +26,7 @@ export default function FoundersSection() {
         </article>
         <article className="person reveal">
           <div className="portrait">
-            <img src="/assets/hemant-ostwal.png" alt="Hemant Ostwal - Fund Leadership" width="911" height="1024" loading="lazy" />
+            <img src="/assets/founders/hemant-ostwal-transparent.png" alt="Hemant Ostwal - Fund Leadership" width="334" height="386" loading="lazy" />
           </div>
           <span className="eyebrow">Fund leadership</span>
           <h3>Hemant Ostwal</h3>

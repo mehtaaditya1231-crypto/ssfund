@@ -538,7 +538,7 @@ export default function ImmersiveFullscreenNav({
                 aria-label="Jay Ostwal - Fund Leadership"
               >
                 <img
-                  src="/assets/jay-ostwal.png"
+                  src="/assets/founders/jay-ostwal-transparent.png"
                   alt="Jay Ostwal"
                   className="w-full h-full object-contain object-bottom p-2 grayscale contrast-115 group-hover:grayscale-0 transition duration-500"
                   loading="lazy"
@@ -561,7 +561,7 @@ export default function ImmersiveFullscreenNav({
                 aria-label="Hemant Ostwal - Fund Leadership"
               >
                 <img
-                  src="/assets/hemant-ostwal.png"
+                  src="/assets/founders/hemant-ostwal-transparent.png"
                   alt="Hemant Ostwal"
                   className="w-full h-full object-contain object-bottom p-2 grayscale contrast-115 group-hover:grayscale-0 transition duration-500"
                   loading="lazy"
