@@ -31,7 +31,7 @@ export interface ImmersiveNavProps {
 const DEFAULT_LINKS = [
   { label: "Home", href: "/" },
   { label: "The Fund", href: "/the-fund" },
-  { label: "Approach", href: "/#approach" },
+  { label: "Approach", href: "/approach" },
   { label: "Founders", href: "/founders" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -136,6 +136,12 @@ export default function ImmersiveFullscreenNav({
   // Detect section background to adapt closed header color over remaining sections
   useEffect(() => {
     const checkDarkSection = () => {
+      // The Approach page is 100% white (#FFFFFF), so closed header remains pure black (#000000)
+      if (currentPath === "/approach" || document.querySelector(".approach-main")) {
+        setIsDarkSection(false);
+        return;
+      }
+
       const darkElements = document.querySelectorAll(
         "#approach, #team, [data-nav-dark='true'], .dark-section, [data-theme='dark']"
       );
