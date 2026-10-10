@@ -61,7 +61,7 @@ export default function QuoteSection() {
   }, []);
 
   return (
-    <section ref={quoteRef} className="quote" data-section="04">
+    <section ref={quoteRef} className="quote" data-section="04" data-nav-dark="true">
       <div className="quote-inner reveal">
         <blockquote ref={blockquoteRef}>
           Our edge is not predicting every turn. It is knowing what we own, why we own it, and when patience deserves to be rewarded.

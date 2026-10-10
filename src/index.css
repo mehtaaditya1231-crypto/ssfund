@@ -16,6 +16,7 @@
   --rust: #b45e3f;
   --line: rgba(22, 33, 31, 0.18);
   --pad: clamp(1.25rem, 4vw, 4.5rem);
+  --page-padding: var(--pad);
 }
 
 * {
@@ -384,15 +385,23 @@ section {
 }
 
 .quote {
-  padding-top: 2rem;
+  padding: 0;
   position: relative;
   z-index: 3;
-  background-color: #FFFFFF;
+  background-color: transparent;
 }
 
 .quote-inner {
-  background-color: #F5E1DE;
-  color: #000000;
+  width: calc(100% - 2 * var(--page-padding));
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: clamp(5rem, 9vw, 9rem);
+  background: rgba(8, 8, 8, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(241, 234, 223, 0.18);
+  color: #F1EADF;
   border-radius: min(3vw, 2rem);
   padding: clamp(2rem, 7vw, 7rem);
   position: relative;
@@ -407,8 +416,8 @@ section {
 }
 
 .quote-inner ::selection {
-  background: #000000;
-  color: #ffffff;
+  background: #F1EADF;
+  color: #000000;
 }
 
 .quote-inner:before {
@@ -417,7 +426,7 @@ section {
   right: 3%;
   top: -0.2em;
   font: 400 clamp(15rem, 40vw, 40rem)/1 "Newsreader", serif;
-  color: rgba(214, 40, 40, 0.07);
+  color: rgba(241, 234, 223, 0.08);
   transform: translateY(var(--quote-mark, 0));
   transition: transform 0.1s linear;
 }
@@ -428,7 +437,7 @@ section {
   max-width: 1200px;
   margin: 0;
   position: relative;
-  color: #000000;
+  color: #F1EADF;
 }
 
 .quote-word {
@@ -437,6 +446,7 @@ section {
   transform: translateY(0.55em) rotate(1.5deg);
   filter: blur(5px);
   transition: opacity 0.65s, transform 0.65s, filter 0.65s;
+  color: #F1EADF;
 }
 
 .quote-word.assembled {
@@ -454,7 +464,7 @@ section {
   opacity: 0;
   transform: translateY(15px);
   transition: 0.7s 0.35s;
-  color: rgba(0, 0, 0, 0.72);
+  color: rgba(241, 234, 223, 0.64);
 }
 
 .quote cite.assembled {
@@ -466,7 +476,7 @@ section {
   content: "";
   width: 3rem;
   height: 1px;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(241, 234, 223, 0.18);
 }
 
 .team-head {
@@ -901,6 +911,11 @@ main {
 }
 
 @media (max-width: 768px) {
+  .quote-inner {
+    margin-top: clamp(3.5rem, 12vw, 5rem);
+    min-height: 60vh;
+  }
+
   .footer-region {
     height: auto;
     min-height: 0;
@@ -955,12 +970,14 @@ main {
   margin-top: 0;
   border-radius: 0;
   padding-top: calc(6.5rem + env(safe-area-inset-top, 0px));
+  padding-bottom: 0;
 }
 
 .founders-main .quote {
-  border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
-  margin-top: -2rem;
-  padding-bottom: clamp(4rem, 8vw, 7rem);
+  border-radius: 0;
+  margin-top: 0;
+  background-color: transparent;
+  padding: 0 0 clamp(4rem, 8vw, 7rem) 0;
 }
 
 /* ==========================================================================
