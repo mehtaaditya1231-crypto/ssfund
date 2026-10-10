@@ -30,7 +30,7 @@ export interface ImmersiveNavProps {
 
 const DEFAULT_LINKS = [
   { label: "Home", href: "/" },
-  { label: "The Fund", href: "/#about" },
+  { label: "The Fund", href: "/the-fund" },
   { label: "Approach", href: "/#approach" },
   { label: "Founders", href: "/founders" },
   { label: "Contact", href: "/#contact" },
@@ -136,12 +136,13 @@ export default function ImmersiveFullscreenNav({
   // Detect section background to adapt closed header color over remaining sections
   useEffect(() => {
     const checkDarkSection = () => {
-      const approach = document.getElementById("approach");
-      const team = document.getElementById("team");
+      const darkElements = document.querySelectorAll(
+        "#approach, #team, [data-nav-dark='true'], .dark-section, [data-theme='dark']"
+      );
       const headerThreshold = 55;
 
       let dark = false;
-      [approach, team].forEach((el) => {
+      darkElements.forEach((el) => {
         if (el) {
           const rect = el.getBoundingClientRect();
           if (rect.top <= headerThreshold && rect.bottom >= 15) {
@@ -365,6 +366,16 @@ export default function ImmersiveFullscreenNav({
 
       if (targetHref === "/" || targetHref === "#top") {
         window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      if (targetHref === "/the-fund") {
+        window.location.href = "/the-fund";
+        return;
+      }
+
+      if (targetHref === "/approach") {
+        window.location.href = "/approach";
         return;
       }
 

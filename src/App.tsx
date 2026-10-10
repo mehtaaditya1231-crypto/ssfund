@@ -4,12 +4,52 @@ import Hero from "@/components/Hero";
 import FoundersSection from "@/components/FoundersSection";
 import QuoteSection from "@/components/QuoteSection";
 import Footer from "@/components/Footer";
+import TheFundPage from "@/components/TheFundPage";
 
 function normalizePath(pathname: string): string {
-  if (pathname.includes("founders")) {
+  const clean = pathname.replace(/\/$/, "");
+  if (clean.includes("the-fund")) {
+    return "/the-fund";
+  }
+  if (clean.includes("founders")) {
     return "/founders";
   }
+  if (clean.includes("approach")) {
+    return "/approach";
+  }
   return "/";
+}
+
+function ApproachPlaceholder({ onNavigate }: { onNavigate: (to: string) => void }) {
+  return (
+    <main id="top" className="approach-main bg-white text-black min-h-[70vh] flex flex-col justify-center px-[var(--pad)] pt-[calc(6rem+env(safe-area-inset-top,0px))] pb-16">
+      <div className="max-w-[1000px] mx-auto w-full">
+        <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] uppercase text-black/55 block mb-4">
+          OUR APPROACH
+        </span>
+        <h1 className="font-serif text-[clamp(36px,6vw,84px)] font-normal leading-[1.0] tracking-[-0.04em] text-black m-0 mb-6">
+          A disciplined framework
+          <br />
+          for long-term value creation.
+        </h1>
+        <p className="font-sans text-[clamp(15px,1.25vw,18px)] leading-[1.65] text-black/75 max-w-[620px] mb-8">
+          Our detailed investment approach and interactive research framework are currently being prepared.
+        </p>
+        <div className="flex gap-6 items-center">
+          <a
+            href="/the-fund"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate("/the-fund");
+            }}
+            className="font-sans text-[15px] font-medium text-black border-b border-black/35 pb-1 hover:border-black transition-colors"
+          >
+            ← Back to The Fund
+          </a>
+        </div>
+      </div>
+    </main>
+  );
 }
 
 export default function App() {
@@ -56,10 +96,32 @@ export default function App() {
 
   // Navigate handler for menu items and internal links
   const handleNavigate = useCallback((to: string) => {
+    if (to === "/the-fund") {
+      if (window.location.pathname !== "/the-fund") {
+        window.history.pushState({}, "", "/the-fund");
+        setCurrentPath("/the-fund");
+        window.scrollTo(0, 0);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      return;
+    }
+
     if (to === "/founders" || to === "/founders.html") {
       if (window.location.pathname !== "/founders") {
         window.history.pushState({}, "", "/founders");
         setCurrentPath("/founders");
+        window.scrollTo(0, 0);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      return;
+    }
+
+    if (to === "/approach") {
+      if (window.location.pathname !== "/approach") {
+        window.history.pushState({}, "", "/approach");
+        setCurrentPath("/approach");
         window.scrollTo(0, 0);
       } else {
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -99,7 +161,9 @@ export default function App() {
     }
   }, []);
 
+  const isFundPage = currentPath === "/the-fund";
   const isFoundersPage = currentPath === "/founders";
+  const isApproachPage = currentPath === "/approach";
 
   return (
     <>
@@ -113,14 +177,22 @@ export default function App() {
         onNavigate={handleNavigate}
         links={[
           { label: "Home", href: "/" },
-          { label: "The Fund", href: "/#about" },
+          { label: "The Fund", href: "/the-fund" },
           { label: "Approach", href: "/#approach" },
           { label: "Founders", href: "/founders" },
           { label: "Contact", href: "/#contact" },
         ]}
       />
 
-      {isFoundersPage ? (
+      {isFundPage ? (
+        /* Dedicated The Fund Page */
+        <>
+          <main id="top" className="fund-main">
+            <TheFundPage onNavigate={handleNavigate} />
+          </main>
+          <Footer />
+        </>
+      ) : isFoundersPage ? (
         /* Dedicated Founders Page */
         <>
           <main id="top" className="founders-main">
@@ -130,6 +202,12 @@ export default function App() {
             {/* 2. Pale-pink quote section */}
             <QuoteSection />
           </main>
+          <Footer />
+        </>
+      ) : isApproachPage ? (
+        /* Approach Route Safe Handling */
+        <>
+          <ApproachPlaceholder onNavigate={handleNavigate} />
           <Footer />
         </>
       ) : (

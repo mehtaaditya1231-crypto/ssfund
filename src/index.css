@@ -962,3 +962,78 @@ main {
   margin-top: -2rem;
   padding-bottom: clamp(4rem, 8vw, 7rem);
 }
+
+/* ==========================================================================
+   The Fund Dedicated Page Styles
+   ========================================================================== */
+.fund-main {
+  background-color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.fund-page {
+  font-family: "Inter", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.fund-page .font-serif {
+  font-family: "Instrument Serif", "Newsreader", Georgia, serif;
+}
+
+.fund-page .font-sans {
+  font-family: "Inter", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.fund-hero-line,
+.belief-heading-line {
+  display: block;
+  will-change: transform, opacity;
+}
+
+@keyframes scrollDownLine {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scroll-line {
+  animation: scrollDownLine 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.approach-main {
+  position: relative;
+  z-index: 2;
+}
+
+.approach-main .font-serif {
+  font-family: "Instrument Serif", "Newsreader", Georgia, serif;
+}
+
+.approach-main .font-sans {
+  font-family: "Inter", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-line {
+    animation: none !important;
+  }
+  .fund-hero-line,
+  .belief-heading-line,
+  .fund-hero-label,
+  .fund-hero-supporting,
+  .fund-hero-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
