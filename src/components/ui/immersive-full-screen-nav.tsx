@@ -33,7 +33,7 @@ const DEFAULT_LINKS = [
   { label: "The Fund", href: "/the-fund" },
   { label: "Approach", href: "/approach" },
   { label: "Founders", href: "/founders" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function AnimatedNavLink({
@@ -136,8 +136,13 @@ export default function ImmersiveFullscreenNav({
   // Detect section background to adapt closed header color over remaining sections
   useEffect(() => {
     const checkDarkSection = () => {
-      // The Approach page is 100% white (#FFFFFF), so closed header remains pure black (#000000)
-      if (currentPath === "/approach" || document.querySelector(".approach-main")) {
+      // The Approach & Contact pages are 100% white (#FFFFFF), so closed header remains pure black (#000000)
+      if (
+        currentPath === "/approach" ||
+        currentPath === "/contact" ||
+        document.querySelector(".approach-main") ||
+        document.querySelector(".contact-main")
+      ) {
         setIsDarkSection(false);
         return;
       }
@@ -385,6 +390,11 @@ export default function ImmersiveFullscreenNav({
         return;
       }
 
+      if (targetHref === "/contact") {
+        window.location.href = "/contact";
+        return;
+      }
+
       if (targetHref === "/founders" || targetHref === "/founders.html") {
         window.location.href = "/founders";
         return;
@@ -491,9 +501,8 @@ export default function ImmersiveFullscreenNav({
           clipPath: CLIPS.bottom.closedInitial,
           backgroundColor: overlayBg,
         }}
-        className={`fixed inset-0 z-40 flex flex-col justify-between overflow-y-auto ${
-          isOpen ? "pointer-events-auto" : "pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 flex flex-col justify-between overflow-y-auto ${isOpen ? "pointer-events-auto" : "pointer-events-none"
+          }`}
         aria-hidden={!isOpen}
         role="navigation"
         aria-label="Full screen primary navigation"

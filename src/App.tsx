@@ -6,6 +6,7 @@ import QuoteSection from "@/components/QuoteSection";
 import Footer from "@/components/Footer";
 import TheFundPage from "@/components/TheFundPage";
 import ApproachPage from "@/components/ApproachPage";
+import ContactPage from "@/components/ContactPage";
 
 function normalizePath(pathname: string): string {
   const clean = pathname.replace(/\/$/, "");
@@ -17,6 +18,9 @@ function normalizePath(pathname: string): string {
   }
   if (clean.includes("approach")) {
     return "/approach";
+  }
+  if (clean.includes("contact")) {
+    return "/contact";
   }
   return "/";
 }
@@ -99,18 +103,12 @@ export default function App() {
     }
 
     if (to === "/contact") {
-      const el = document.getElementById("contact");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      } else if (window.location.pathname !== "/") {
-        window.history.pushState({}, "", "/#contact");
-        setCurrentPath("/");
-        setTimeout(() => {
-          const contactEl = document.getElementById("contact");
-          if (contactEl) {
-            contactEl.scrollIntoView({ behavior: "smooth" });
-          }
-        }, 100);
+      if (window.location.pathname !== "/contact") {
+        window.history.pushState({}, "", "/contact");
+        setCurrentPath("/contact");
+        window.scrollTo(0, 0);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
       return;
     }
@@ -150,6 +148,7 @@ export default function App() {
   const isFundPage = currentPath === "/the-fund";
   const isFoundersPage = currentPath === "/founders";
   const isApproachPage = currentPath === "/approach";
+  const isContactPage = currentPath === "/contact";
 
   return (
     <>
@@ -166,7 +165,7 @@ export default function App() {
           { label: "The Fund", href: "/the-fund" },
           { label: "Approach", href: "/approach" },
           { label: "Founders", href: "/founders" },
-          { label: "Contact", href: "/#contact" },
+          { label: "Contact", href: "/contact" },
         ]}
       />
 
@@ -195,6 +194,14 @@ export default function App() {
         <>
           <main id="top" className="approach-main">
             <ApproachPage onNavigate={handleNavigate} />
+          </main>
+          <Footer />
+        </>
+      ) : isContactPage ? (
+        /* Dedicated Contact Page */
+        <>
+          <main id="top" className="contact-main">
+            <ContactPage onNavigate={handleNavigate} />
           </main>
           <Footer />
         </>
