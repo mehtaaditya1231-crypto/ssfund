@@ -33,7 +33,7 @@ const DEFAULT_LINKS = [
   { label: "The Fund", href: "/the-fund" },
   { label: "Approach", href: "/approach" },
   { label: "Founders", href: "/founders" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function AnimatedNavLink({
@@ -63,7 +63,7 @@ function AnimatedNavLink({
       className="group relative inline-block py-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-white rounded-sm"
       style={{
         color: linkColor,
-        fontFamily: '"Newsreader", Georgia, serif',
+        fontFamily: '"Bodoni Moda", serif',
       }}
     >
       <span className="sr-only">{label}</span>
@@ -105,10 +105,10 @@ function AnimatedNavLink({
 
 export default function ImmersiveFullscreenNav({
   clipOrigin = "bottom",
-  overlayBg = "#000000",
-  headerOpenColor = "#FFFFFF",
-  linkColor = "#FFFFFF",
-  linkHoverColor = "#A3A3A3",
+  overlayBg = "#081F3C",
+  headerOpenColor = "#F5F1E8",
+  linkColor = "#F5F1E8",
+  linkHoverColor = "#B87332",
   openDuration = 1.1,
   closeDuration = 0.9,
   ease = "power4.inOut",
@@ -121,6 +121,7 @@ export default function ImmersiveFullscreenNav({
 }: ImmersiveNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const overlayRef = useRef<HTMLElement | null>(null);
   const contentWrapperRef = useRef<HTMLDivElement | null>(null);
@@ -133,17 +134,42 @@ export default function ImmersiveFullscreenNav({
     typeof window !== "undefined" &&
     window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
 
-  // Detect section background to adapt closed header color over remaining sections
+  // Detect section background to adapt closed header color over remaining sections,
+  // and handle landing page scroll threshold for company name hiding
   useEffect(() => {
-    const checkDarkSection = () => {
-      // The Approach page is 100% white (#FFFFFF), so closed header remains pure black (#000000)
-      if (currentPath === "/approach" || document.querySelector(".approach-main")) {
+    const handleScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+
+      // Stable hysteresis threshold around 90px to prevent flickering:
+      // Hide full name when scrollY > 95px, restore when scrollY < 65px
+      setIsScrolled((prev) => {
+        if (!prev && scrollY > 95) return true;
+        if (prev && scrollY < 65) return false;
+        return prev;
+      });
+
+      // Light pages: Approach, Contact, and The Fund
+      if (
+        currentPath === "/approach" ||
+        currentPath === "/contact" ||
+        currentPath === "/the-fund" ||
+        document.querySelector(".approach-main") ||
+        document.querySelector(".contact-main") ||
+        document.querySelector(".fund-main")
+      ) {
         setIsDarkSection(false);
         return;
       }
 
+      // Dark navy page: Founders
+      if (currentPath === "/founders" || document.querySelector(".founders-main")) {
+        setIsDarkSection(true);
+        return;
+      }
+
+      // On landing page, detect dark navy sections
       const darkElements = document.querySelectorAll(
-        "#approach, #team, [data-nav-dark='true'], .dark-section, [data-theme='dark']"
+        "#approach, #team, [data-nav-dark='true'], .dark-section, [data-theme='dark'], .site-footer, #contact"
       );
       const headerThreshold = 55;
 
@@ -159,14 +185,14 @@ export default function ImmersiveFullscreenNav({
       setIsDarkSection(dark);
     };
 
-    window.addEventListener("scroll", checkDarkSection, { passive: true });
-    window.addEventListener("resize", checkDarkSection, { passive: true });
-    checkDarkSection();
-    const timer = setTimeout(checkDarkSection, 30);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    handleScroll();
+    const timer = setTimeout(handleScroll, 30);
 
     return () => {
-      window.removeEventListener("scroll", checkDarkSection);
-      window.removeEventListener("resize", checkDarkSection);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
       clearTimeout(timer);
     };
   }, [currentPath]);
@@ -385,6 +411,11 @@ export default function ImmersiveFullscreenNav({
         return;
       }
 
+      if (targetHref === "/contact") {
+        window.location.href = "/contact";
+        return;
+      }
+
       if (targetHref === "/founders" || targetHref === "/founders.html") {
         window.location.href = "/founders";
         return;
@@ -402,10 +433,15 @@ export default function ImmersiveFullscreenNav({
   };
 
   // Header element colors:
-  // When menu is open -> headerOpenColor (#FFFFFF)
-  // When closed over dark section (#approach, #contact) -> #FFFFFF
-  // When closed over pure white hero or light sections -> #000000
-  const currentHeaderColor = isOpen ? headerOpenColor : isDarkSection ? "#FFFFFF" : "#000000";
+  // When menu is open -> headerOpenColor (#F5F1E8)
+  // When closed over dark navy section -> #F5F1E8
+  // When closed over light sections -> #081F3C (navy)
+  const currentHeaderColor = isOpen ? headerOpenColor : isDarkSection ? "#F5F1E8" : "#081F3C";
+
+  // The full company name beside the logo appears in exactly one place:
+  // the initial, unscrolled state of the landing-page header.
+  const isLandingPage = currentPath === "/" || currentPath === "" || currentPath === "#top";
+  const showCompanyName = isLandingPage && !isScrolled && !isOpen;
 
   return (
     <div ref={rootRef}>
@@ -417,7 +453,7 @@ export default function ImmersiveFullscreenNav({
           background: "transparent",
         }}
       >
-        {/* Brand */}
+        {/* Brand Group: Official Logo + Optional Company Name on Landing Page */}
         <a
           href="#top"
           onClick={(e) => {
@@ -432,19 +468,47 @@ export default function ImmersiveFullscreenNav({
               }
             }
           }}
-          className="flex items-center gap-3 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current rounded-full"
+          className="flex items-center group transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current rounded-xs"
           style={{ color: currentHeaderColor }}
-          aria-label="Sneh Sagar Wealth Management LLP home"
+          aria-label="Sneh Sagar Wealth Management LLP, Home"
         >
-          <span
-            className="w-[30px] h-[30px] rounded-full border border-current flex items-center justify-center font-serif text-[0.84rem] transition-colors duration-300 select-none shrink-0"
-            style={{ fontFamily: '"Newsreader", Georgia, serif' }}
+          {/* Official Sneh Sagar Logo with smooth variant crossfade (no white square) */}
+          <div className="relative h-[36px] sm:h-[44px] aspect-[465/500] shrink-0">
+            {/* Navy & Copper variant (for white and warm-ivory sections) */}
+            <img
+              src="/assets/sneh-sagar-logo-navy.png"
+              alt="Sneh Sagar Wealth Management LLP"
+              className={`absolute inset-0 h-full w-auto object-contain transition-opacity duration-300 ${
+                isDarkSection || isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+              }`}
+            />
+            {/* Warm Ivory & Copper variant (for navy sections and open fullscreen menu) */}
+            <img
+              src="/assets/sneh-sagar-logo-ivory.png"
+              alt=""
+              aria-hidden="true"
+              className={`absolute inset-0 h-full w-auto object-contain transition-opacity duration-300 ${
+                isDarkSection || isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+              }`}
+            />
+          </div>
+
+          {/* Full company name visible only at the unscrolled top of the landing page */}
+          <div
+            className={`overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-opacity ${
+              showCompanyName
+                ? "max-w-[240px] xs:max-w-[280px] sm:max-w-[460px] opacity-100 translate-x-0 ml-3 sm:ml-4"
+                : "max-w-0 opacity-0 -translate-x-2 ml-0 pointer-events-none"
+            }`}
+            aria-hidden="true"
           >
-            SS
-          </span>
-          <span className="font-semibold tracking-[0.02em] sm:tracking-[0.04em] text-[0.82rem] sm:text-[0.92rem] transition-colors duration-300 select-none">
-            {agencyName}
-          </span>
+            <span
+              className="block font-sans text-[10.5px] xs:text-[11.5px] sm:text-[12.5px] font-medium tracking-[0.11em] leading-[1.25] sm:leading-none uppercase whitespace-normal sm:whitespace-nowrap transition-colors duration-300 select-none"
+              style={{ color: currentHeaderColor }}
+            >
+              {agencyName}
+            </span>
+          </div>
         </a>
 
         {/* Minimal 3-Line Menu Button */}
@@ -491,9 +555,8 @@ export default function ImmersiveFullscreenNav({
           clipPath: CLIPS.bottom.closedInitial,
           backgroundColor: overlayBg,
         }}
-        className={`fixed inset-0 z-40 flex flex-col justify-between overflow-y-auto ${
-          isOpen ? "pointer-events-auto" : "pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 flex flex-col justify-between overflow-y-auto ${isOpen ? "pointer-events-auto" : "pointer-events-none"
+          }`}
         aria-hidden={!isOpen}
         role="navigation"
         aria-label="Full screen primary navigation"
@@ -503,9 +566,9 @@ export default function ImmersiveFullscreenNav({
           className="w-full min-h-screen flex flex-col justify-between px-6 sm:px-12 md:px-20 lg:px-28 pt-28 pb-12 text-[#FFFFFF]"
         >
           {/* Top Meta Details */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-white/15 text-xs uppercase tracking-[0.16em] text-neutral-400">
-            <span className="text-white font-medium">{agencyName}</span>
-            <span className="hidden sm:inline font-normal lowercase italic text-[0.85rem] tracking-normal font-serif text-white/80">
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-white/20 text-xs uppercase tracking-[0.16em] text-white/70">
+            <span className="text-[#F5F1E8] font-medium">{agencyName}</span>
+            <span className="hidden sm:inline font-normal lowercase text-[0.85rem] tracking-normal font-serif text-[#F5F1E8]/80">
               {tagline}
             </span>
             <span>{location}</span>
@@ -534,7 +597,7 @@ export default function ImmersiveFullscreenNav({
               <a
                 href="/founders"
                 onClick={(e) => handleLinkClick(e, "/founders")}
-                className="group relative w-full sm:w-44 lg:w-48 aspect-[3/4] rounded-xl overflow-hidden bg-white/[0.04] border border-white/15 hover:border-white/30 transition-all duration-500 hover:scale-[1.02] cursor-pointer block"
+                className="group relative w-full sm:w-44 lg:w-48 aspect-[3/4] rounded-xl overflow-hidden bg-white/[0.04] border border-white/20 hover:border-[#B87332]/50 transition-all duration-500 hover:scale-[1.02] cursor-pointer block"
                 aria-label="Jay Ostwal - Fund Leadership"
               >
                 <img
@@ -543,11 +606,11 @@ export default function ImmersiveFullscreenNav({
                   className="w-full h-full object-contain object-bottom p-2 grayscale contrast-115 group-hover:grayscale-0 transition duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black via-black/80 to-transparent">
-                  <p className="text-xs font-semibold tracking-wider uppercase text-white">
+                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-[#081F3C] via-[#081F3C]/80 to-transparent">
+                  <p className="text-xs font-semibold tracking-wider uppercase text-[#F5F1E8]">
                     Jay Ostwal
                   </p>
-                  <p className="text-[11px] text-[#A3A3A3] tracking-normal">
+                  <p className="text-[11px] text-white/70 tracking-normal font-sans">
                     Fund leadership
                   </p>
                 </div>
@@ -557,7 +620,7 @@ export default function ImmersiveFullscreenNav({
               <a
                 href="/founders"
                 onClick={(e) => handleLinkClick(e, "/founders")}
-                className="group relative w-full sm:w-44 lg:w-48 aspect-[3/4] rounded-xl overflow-hidden bg-white/[0.04] border border-white/15 hover:border-white/30 transition-all duration-500 hover:scale-[1.02] cursor-pointer block"
+                className="group relative w-full sm:w-44 lg:w-48 aspect-[3/4] rounded-xl overflow-hidden bg-white/[0.04] border border-white/20 hover:border-[#B87332]/50 transition-all duration-500 hover:scale-[1.02] cursor-pointer block"
                 aria-label="Hemant Ostwal - Fund Leadership"
               >
                 <img
@@ -566,11 +629,11 @@ export default function ImmersiveFullscreenNav({
                   className="w-full h-full object-contain object-bottom p-2 grayscale contrast-115 group-hover:grayscale-0 transition duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black via-black/80 to-transparent">
-                  <p className="text-xs font-semibold tracking-wider uppercase text-white">
+                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-[#081F3C] via-[#081F3C]/80 to-transparent">
+                  <p className="text-xs font-semibold tracking-wider uppercase text-[#F5F1E8]">
                     Hemant Ostwal
                   </p>
-                  <p className="text-[11px] text-[#A3A3A3] tracking-normal">
+                  <p className="text-[11px] text-white/70 tracking-normal font-sans">
                     Fund leadership
                   </p>
                 </div>
@@ -579,10 +642,10 @@ export default function ImmersiveFullscreenNav({
           </div>
 
           {/* Bottom Footnote / Focus */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10 text-xs text-neutral-400">
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/20 text-xs text-white/70">
             <p>© 2026 Sneh Sagar Wealth Management LLP</p>
-            <p className="font-serif italic text-sm text-white">
-              Indian public equities · ₹1 crore min. investment
+            <p className="font-serif text-sm text-[#F5F1E8]">
+              Indian public equities
             </p>
           </div>
         </div>

@@ -14,11 +14,6 @@ const PRODUCT_INFO = [
     nowrap: false,
   },
   {
-    label: "Minimum investment",
-    value: "₹1 crore",
-    nowrap: true,
-  },
-  {
     label: "Inception date",
     value: "5 August 2026",
     nowrap: false,
@@ -305,23 +300,23 @@ export default function TheFundPage({ onNavigate }: TheFundPageProps) {
   return (
     <div
       ref={containerRef}
-      className="fund-page bg-white text-black selection:bg-black selection:text-white"
+      className="fund-page bg-[#F5F1E8] text-[#081F3C] selection:bg-[#B87332] selection:text-white"
     >
       {/* =========================================================================
           SECTION 1 — HERO
-          Spacious, minimal pure-white hero (~75svh). Does not occupy more than
+          Spacious, minimal warm-ivory hero (~75svh). Does not occupy more than
           one viewport.
           ========================================================================= */}
       <section
-        className="fund-hero min-h-[75svh] flex flex-col items-center justify-center text-center relative px-[var(--pad)] pt-[calc(5.5rem+env(safe-area-inset-top,0px))] pb-12 sm:pb-16 bg-white"
+        className="fund-hero min-h-[75svh] flex flex-col items-center justify-center text-center relative px-[var(--pad)] pt-[calc(5.5rem+env(safe-area-inset-top,0px))] pb-12 sm:pb-16 bg-[#F5F1E8]"
         aria-label="SS Value Plus Fund Hero"
       >
         <div className="w-full max-w-[1020px] flex flex-col items-center justify-center">
-          <p className="fund-hero-label font-sans text-[11px] sm:text-[13px] font-medium tracking-[0.22em] uppercase text-black mb-6 sm:mb-8">
+          <p className="fund-hero-label font-sans text-[11px] sm:text-[13px] font-medium tracking-[0.22em] uppercase text-[#B87332] mb-6 sm:mb-8">
             SS VALUE PLUS FUND
           </p>
 
-          <h1 className="fund-hero-title font-serif text-[clamp(42px,7.5vw,104px)] font-normal leading-[0.98] tracking-[-0.04em] text-black m-0 max-w-[940px]">
+          <h1 className="fund-hero-title font-serif text-[clamp(42px,7.5vw,104px)] font-normal leading-[0.98] tracking-[-0.04em] text-[#081F3C] m-0 max-w-[940px]">
             <span className="block overflow-hidden py-[0.04em]">
               <span className="fund-hero-line block">Built for investors</span>
             </span>
@@ -330,7 +325,7 @@ export default function TheFundPage({ onNavigate }: TheFundPageProps) {
             </span>
           </h1>
 
-          <p className="fund-hero-supporting font-sans text-[clamp(15px,1.25vw,17.5px)] leading-[1.65] font-normal text-black/80 max-w-[580px] mt-7 sm:mt-10">
+          <p className="fund-hero-supporting font-sans text-[clamp(15px,1.25vw,17.5px)] leading-[1.65] font-normal text-[#081F3C]/80 max-w-[580px] mt-7 sm:mt-10">
             A research-led investment fund focused on finding value in Indian small- and mid-cap businesses.
           </p>
         </div>
@@ -340,34 +335,34 @@ export default function TheFundPage({ onNavigate }: TheFundPageProps) {
           SECTION 2 — ABOUT OUR PRODUCT
           Directly below hero. Two-column editorial layout on desktop.
           Left: Heading and approved paragraphs.
-          Right: Clean info rows separated by thin black dividers.
+          Right: Clean info rows separated by thin navy dividers.
           ========================================================================= */}
       <section
-        className="fund-product bg-white text-black px-[var(--pad)] py-[clamp(4.5rem,8.5vw,7.5rem)]"
+        className="fund-product bg-white text-[#081F3C] px-[var(--pad)] py-[clamp(4.5rem,8.5vw,7.5rem)]"
         aria-label="About our product"
       >
         <div className="max-w-[1200px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
             {/* Left column: Approved editorial copy */}
             <div className="lg:col-span-7 flex flex-col items-start">
-              <span className="product-label font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] uppercase text-black/60 block mb-4 sm:mb-6">
+              <span className="product-label font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] uppercase text-[#B87332] block mb-4 sm:mb-6">
                 ABOUT OUR PRODUCT
               </span>
 
-              <h2 className="product-heading font-serif text-[clamp(34px,5vw,66px)] font-normal leading-[1.04] tracking-[-0.035em] text-black m-0 mb-8 sm:mb-10">
+              <h2 className="product-heading font-serif text-[clamp(34px,5vw,66px)] font-normal leading-[1.04] tracking-[-0.035em] text-[#081F3C] m-0 mb-8 sm:mb-10">
                 <span className="block">Focused ideas.</span>
                 <span className="block">Measured exposure.</span>
                 <span className="block">Long-term thinking.</span>
               </h2>
 
               <div className="product-paragraphs space-y-5 sm:space-y-6 max-w-[620px]">
-                <p className="product-p font-sans text-[clamp(15px,1.2vw,17px)] leading-[1.72] font-normal text-black/75 m-0">
+                <p className="product-p font-sans text-[clamp(15px,1.2vw,17px)] leading-[1.72] font-normal text-[#081F3C]/75 m-0">
                   SS Value Plus Fund focuses on small- and mid-cap companies through fundamentally driven investment ideas.
                 </p>
-                <p className="product-p font-sans text-[clamp(15px,1.2vw,17px)] leading-[1.72] font-normal text-black/75 m-0">
+                <p className="product-p font-sans text-[clamp(15px,1.2vw,17px)] leading-[1.72] font-normal text-[#081F3C]/75 m-0">
                   We typically pursue the second- or third-largest players within a sector when they are available at a significant discount to the market leader.
                 </p>
-                <p className="product-p font-sans text-[clamp(15px,1.2vw,17px)] leading-[1.72] font-normal text-black/75 m-0">
+                <p className="product-p font-sans text-[clamp(15px,1.2vw,17px)] leading-[1.72] font-normal text-[#081F3C]/75 m-0">
                   From a risk-management perspective, exposure to any single stock is restricted to less than 10% of the portfolio. Through a typical holding period of three to five years, the portfolio endeavours to generate alpha and create long-term wealth.
                 </p>
               </div>
@@ -384,15 +379,15 @@ export default function TheFundPage({ onNavigate }: TheFundPageProps) {
                     {/* Top divider */}
                     <div
                       className="product-divider absolute top-0 inset-x-0 h-[1px]"
-                      style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                      style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                     />
 
                     <div className="product-info-content">
-                      <span className="font-sans text-[11px] sm:text-[12px] font-medium tracking-[0.16em] uppercase text-black/60 block">
+                      <span className="font-sans text-[11px] sm:text-[12px] font-medium tracking-[0.16em] uppercase text-[#B87332] block">
                         {item.label}
                       </span>
                       <span
-                        className={`font-serif text-[clamp(22px,2.3vw,32px)] font-normal text-black leading-[1.2] mt-1.5 sm:mt-2 block ${
+                        className={`font-serif text-[clamp(22px,2.3vw,32px)] font-normal text-[#081F3C] leading-[1.2] mt-1.5 sm:mt-2 block ${
                           item.nowrap ? "whitespace-nowrap" : ""
                         }`}
                       >
@@ -404,7 +399,7 @@ export default function TheFundPage({ onNavigate }: TheFundPageProps) {
                     {idx === arr.length - 1 && (
                       <div
                         className="product-divider absolute bottom-0 inset-x-0 h-[1px]"
-                        style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                        style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                       />
                     )}
                   </div>
@@ -420,25 +415,25 @@ export default function TheFundPage({ onNavigate }: TheFundPageProps) {
           Compact closing section leading to /approach with thin top divider.
           ========================================================================= */}
       <section
-        className="fund-closing bg-white text-black px-[var(--pad)] py-[clamp(4.5rem,8vw,7.5rem)] border-t"
-        style={{ borderColor: "rgba(0, 0, 0, 0.18)" }}
+        className="fund-closing bg-[#F5F1E8] text-[#081F3C] px-[var(--pad)] py-[clamp(4.5rem,8vw,7.5rem)] border-t"
+        style={{ borderColor: "rgba(8, 31, 60, 0.12)" }}
         aria-label="Closing Transition"
       >
         <div className="max-w-[1200px] mx-auto flex flex-col items-start">
-          <h2 className="closing-heading font-serif text-[clamp(34px,5vw,68px)] font-normal leading-[1.04] tracking-[-0.035em] text-black m-0">
+          <h2 className="closing-heading font-serif text-[clamp(34px,5vw,68px)] font-normal leading-[1.04] tracking-[-0.035em] text-[#081F3C] m-0">
             See how conviction
             <br />
             becomes a process.
           </h2>
 
-          <p className="closing-supporting font-sans text-[clamp(15px,1.2vw,17.5px)] leading-[1.65] font-normal text-black/75 max-w-[560px] mt-6 sm:mt-8">
+          <p className="closing-supporting font-sans text-[clamp(15px,1.2vw,17.5px)] leading-[1.65] font-normal text-[#081F3C]/75 max-w-[560px] mt-6 sm:mt-8">
             Explore how investment ideas are researched, questioned and developed over time.
           </p>
 
           <a
             href="/approach"
             onClick={handleApproachClick}
-            className="closing-link inline-flex items-center gap-2 mt-8 sm:mt-10 font-sans text-[15px] sm:text-[16px] font-medium text-black border-b border-black/35 pb-1 hover:border-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-xs"
+            className="closing-link inline-flex items-center gap-2 mt-8 sm:mt-10 font-sans text-[15px] sm:text-[16px] font-medium text-[#081F3C] border-b border-[#081F3C]/35 pb-1 hover:border-[#B87332] hover:text-[#B87332] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#081F3C] rounded-xs"
           >
             <span>Discover our approach</span>
             <span aria-hidden="true">→</span>

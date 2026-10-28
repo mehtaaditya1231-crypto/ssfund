@@ -434,24 +434,24 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
   return (
     <div
       ref={containerRef}
-      className="contact-page bg-white text-black selection:bg-black selection:text-white"
+      className="contact-page bg-[#F5F1E8] text-[#081F3C] selection:bg-[#B87332] selection:text-white"
     >
       {/* =========================================================================
           SECTION 1 — CONTACT INTRODUCTION
-          Spacious pure-white opening section, optical spacing below fixed navbar.
+          Spacious warm-ivory opening section, optical spacing below fixed navbar.
           ========================================================================= */}
       <section
-        className="contact-hero min-h-[72svh] flex flex-col justify-center relative px-[var(--pad,2rem)] pt-[calc(6.5rem+env(safe-area-inset-top,0px))] pb-16 sm:pb-24 bg-white"
+        className="contact-hero min-h-[72svh] flex flex-col justify-center relative px-[var(--pad,2rem)] pt-[calc(6.5rem+env(safe-area-inset-top,0px))] pb-16 sm:pb-24 bg-[#F5F1E8]"
         aria-label="Contact introduction"
       >
         <div className="w-full max-w-[1180px] mx-auto">
           {/* Small label */}
-          <p className="contact-hero-label font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.24em] uppercase text-black/60 mb-6 sm:mb-8 m-0">
+          <p className="contact-hero-label font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.24em] uppercase text-[#B87332] mb-6 sm:mb-8 m-0">
             START A CONVERSATION
           </p>
 
           {/* Large heading with preserved line break and overflow mask */}
-          <h1 className="contact-hero-title font-serif text-[clamp(44px,7.5vw,104px)] font-normal leading-[0.96] tracking-[-0.04em] text-black m-0 max-w-[980px]">
+          <h1 className="contact-hero-title font-serif text-[clamp(44px,7.5vw,104px)] font-normal leading-[0.96] tracking-[-0.04em] text-[#081F3C] m-0 max-w-[980px]">
             <span className="block overflow-hidden py-[0.04em]">
               <span className="contact-hero-line block">Let’s talk</span>
             </span>
@@ -461,7 +461,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           </h1>
 
           {/* Supporting copy */}
-          <p className="contact-hero-supporting font-sans text-[clamp(16px,1.3vw,19px)] leading-[1.68] font-normal text-black/75 max-w-[620px] mt-7 sm:mt-10 m-0">
+          <p className="contact-hero-supporting font-sans text-[clamp(16px,1.3vw,19px)] leading-[1.68] font-normal text-[#081F3C]/75 max-w-[620px] mt-7 sm:mt-10 m-0">
             If our way of thinking resonates with yours, we would be glad to begin a conversation.
           </p>
 
@@ -469,7 +469,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           <div className="contact-hero-email mt-6 sm:mt-8">
             <a
               href="mailto:info@ssvalueplus.com"
-              className="font-sans text-[15px] sm:text-[16px] text-black font-medium border-b border-black/35 hover:border-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-xs inline-block"
+              className="font-sans text-[15px] sm:text-[16px] text-[#081F3C] font-medium border-b border-[#081F3C]/35 hover:border-[#B87332] hover:text-[#B87332] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#081F3C] rounded-xs inline-block"
               aria-label="Direct email to info@ssvalueplus.com"
             >
               info@ssvalueplus.com
@@ -481,7 +481,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
             <a
               href="#enquiry-form"
               onClick={scrollToForm}
-              className="inline-flex items-center gap-2 font-sans text-[11px] sm:text-xs font-medium uppercase tracking-[0.22em] text-black/60 hover:text-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-xs"
+              className="inline-flex items-center gap-2 font-sans text-[11px] sm:text-xs font-medium uppercase tracking-[0.22em] text-[#B87332] hover:text-[#081F3C] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#081F3C] rounded-xs"
               aria-label="Scroll to enquiry form"
             >
               <span>TELL US A LITTLE ABOUT YOURSELF ↓</span>
@@ -496,8 +496,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           ========================================================================= */}
       <section
         id="enquiry-form"
-        className="contact-form-section bg-white text-black px-[var(--pad,2rem)] py-[clamp(4.5rem,8vw,8rem)] border-t"
-        style={{ borderColor: "rgba(0, 0, 0, 0.18)" }}
+        className="contact-form-section bg-white text-[#081F3C] px-[var(--pad,2rem)] py-[clamp(4.5rem,8vw,8rem)] border-t"
+        style={{ borderColor: "rgba(8, 31, 60, 0.12)" }}
         aria-label="Contact request form"
       >
         <div className="w-full max-w-[1180px] mx-auto">
@@ -510,24 +510,24 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
               role="status"
               aria-live="polite"
             >
-              <p className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.24em] uppercase text-black/60 mb-6 m-0">
+              <p className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.24em] uppercase text-[#B87332] mb-6 m-0">
                 ENQUIRY RECEIVED
               </p>
 
-              <h2 className="font-serif text-[clamp(36px,5.5vw,72px)] font-normal leading-[1.02] tracking-[-0.035em] text-black m-0 mb-6">
+              <h2 className="font-serif text-[clamp(36px,5.5vw,72px)] font-normal leading-[1.02] tracking-[-0.035em] text-[#081F3C] m-0 mb-6">
                 Thank you for
                 <br />
                 reaching out.
               </h2>
 
-              <p className="font-sans text-[clamp(16px,1.25vw,19px)] leading-[1.7] font-normal text-black/75 m-0 mb-10 max-w-[580px]">
+              <p className="font-sans text-[clamp(16px,1.25vw,19px)] leading-[1.7] font-normal text-[#081F3C]/75 m-0 mb-10 max-w-[580px]">
                 The team has received your request and will respond using your preferred contact method.
               </p>
 
               <a
                 href="/"
                 onClick={handleReturnHome}
-                className="inline-flex items-center gap-2 font-sans text-[15px] sm:text-[16px] font-medium text-black border-b border-black pb-1 hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-xs"
+                className="inline-flex items-center gap-2 font-sans text-[15px] sm:text-[16px] font-medium text-[#081F3C] border-b border-[#081F3C] pb-1 hover:text-[#B87332] hover:border-[#B87332] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#081F3C] rounded-xs"
               >
                 <span>Return home</span>
                 <span aria-hidden="true">→</span>
@@ -540,17 +540,17 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-start">
               {/* Left Column: Editorial Heading & Supporting Copy */}
               <div className="contact-form-lead lg:col-span-5 flex flex-col items-start lg:sticky lg:top-28">
-                <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] uppercase text-black/60 block mb-4 sm:mb-6">
+                <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] uppercase text-[#B87332] block mb-4 sm:mb-6">
                   YOUR ENQUIRY
                 </span>
 
-                <h2 className="font-serif text-[clamp(34px,4.5vw,62px)] font-normal leading-[1.02] tracking-[-0.035em] text-black m-0 mb-6">
+                <h2 className="font-serif text-[clamp(34px,4.5vw,62px)] font-normal leading-[1.02] tracking-[-0.035em] text-[#081F3C] m-0 mb-6">
                   A considered
                   <br />
                   beginning.
                 </h2>
 
-                <p className="font-sans text-[clamp(15px,1.2vw,17.5px)] leading-[1.72] font-normal text-black/70 max-w-[420px] m-0">
+                <p className="font-sans text-[clamp(15px,1.2vw,17.5px)] leading-[1.72] font-normal text-[#081F3C]/70 max-w-[420px] m-0">
                   Share a few details below so the team can understand your enquiry before responding.
                 </p>
               </div>
@@ -593,27 +593,27 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <div className="contact-form-row relative py-6 sm:py-7">
                     <div
                       className="editorial-divider absolute top-0 inset-x-0 h-[1px]"
-                      style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                      style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                     />
 
                     <div className="flex flex-col gap-2">
                       <div className="flex items-baseline justify-between gap-4">
                         <label
                           htmlFor="contact-name"
-                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-black"
+                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-[#081F3C]"
                         >
                           01 — Full name{" "}
-                          <span className="text-black/60 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
+                          <span className="text-[#081F3C]/60 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
                             (required)
                           </span>
                         </label>
                         {errors.name && (
                           <span
                             id="name-error"
-                            className="font-sans text-xs text-black font-semibold flex items-center gap-1.5"
+                            className="font-sans text-xs text-[#081F3C] font-semibold flex items-center gap-1.5"
                             role="alert"
                           >
-                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-black inline-block" />
+                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-[#B87332] inline-block" />
                             {errors.name}
                           </span>
                         )}
@@ -632,10 +632,10 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         aria-invalid={!!errors.name}
                         aria-describedby={errors.name ? "name-error" : undefined}
                         placeholder="Your full name"
-                        className={`w-full min-h-[48px] px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] text-black placeholder:text-black/30 border-b transition-colors focus:outline-none ${
+                        className={`w-full min-h-[48px] px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] text-[#081F3C] placeholder:text-[#081F3C]/45 border-b transition-colors focus:outline-none ${
                           errors.name
-                            ? "border-black font-medium"
-                            : "border-black/25 focus:border-black"
+                            ? "border-[#B87332] font-medium"
+                            : "border-[#081F3C]/20 focus:border-[#B87332]"
                         }`}
                       />
                     </div>
@@ -647,27 +647,27 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <div className="contact-form-row relative py-6 sm:py-7">
                     <div
                       className="editorial-divider absolute top-0 inset-x-0 h-[1px]"
-                      style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                      style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                     />
 
                     <div className="flex flex-col gap-2">
                       <div className="flex items-baseline justify-between gap-4">
                         <label
                           htmlFor="contact-email"
-                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-black"
+                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-[#081F3C]"
                         >
                           02 — Email address{" "}
-                          <span className="text-black/60 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
+                          <span className="text-[#081F3C]/60 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
                             (required)
                           </span>
                         </label>
                         {errors.email && (
                           <span
                             id="email-error"
-                            className="font-sans text-xs text-black font-semibold flex items-center gap-1.5"
+                            className="font-sans text-xs text-[#081F3C] font-semibold flex items-center gap-1.5"
                             role="alert"
                           >
-                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-black inline-block" />
+                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-[#B87332] inline-block" />
                             {errors.email}
                           </span>
                         )}
@@ -686,10 +686,10 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         aria-invalid={!!errors.email}
                         aria-describedby={errors.email ? "email-error" : undefined}
                         placeholder="name@domain.com"
-                        className={`w-full min-h-[48px] px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] text-black placeholder:text-black/30 border-b transition-colors focus:outline-none ${
+                        className={`w-full min-h-[48px] px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] text-[#081F3C] placeholder:text-[#081F3C]/45 border-b transition-colors focus:outline-none ${
                           errors.email
-                            ? "border-black font-medium"
-                            : "border-black/25 focus:border-black"
+                            ? "border-[#B87332] font-medium"
+                            : "border-[#081F3C]/20 focus:border-[#B87332]"
                         }`}
                       />
                     </div>
@@ -701,17 +701,17 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <div className="contact-form-row relative py-6 sm:py-7">
                     <div
                       className="editorial-divider absolute top-0 inset-x-0 h-[1px]"
-                      style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                      style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                     />
 
                     <div className="flex flex-col gap-2">
                       <div className="flex items-baseline justify-between gap-4">
                         <label
                           htmlFor="contact-phone"
-                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-black"
+                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-[#081F3C]"
                         >
                           03 — Phone number{" "}
-                          <span className="text-black/50 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
+                          <span className="text-[#081F3C]/50 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
                             (optional)
                           </span>
                         </label>
@@ -725,7 +725,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         onChange={handleInputChange}
                         autoComplete="tel"
                         placeholder="+91 98000 00000"
-                        className="w-full min-h-[48px] px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] text-black placeholder:text-black/30 border-b border-black/25 focus:border-black transition-colors focus:outline-none"
+                        className="w-full min-h-[48px] px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] text-[#081F3C] placeholder:text-[#081F3C]/45 border-b border-[#081F3C]/20 focus:border-[#B87332] transition-colors focus:outline-none"
                       />
                     </div>
                   </div>
@@ -736,17 +736,17 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <div className="contact-form-row relative py-6 sm:py-7">
                     <div
                       className="editorial-divider absolute top-0 inset-x-0 h-[1px]"
-                      style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                      style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                     />
 
                     <div className="flex flex-col gap-2">
                       <div className="flex items-baseline justify-between gap-4">
                         <label
                           htmlFor="contact-location"
-                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-black"
+                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-[#081F3C]"
                         >
                           04 — City / Country{" "}
-                          <span className="text-black/50 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
+                          <span className="text-[#081F3C]/50 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
                             (optional)
                           </span>
                         </label>
@@ -760,7 +760,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         onChange={handleInputChange}
                         autoComplete="address-level2"
                         placeholder="Mumbai, India"
-                        className="w-full min-h-[48px] px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] text-black placeholder:text-black/30 border-b border-black/25 focus:border-black transition-colors focus:outline-none"
+                        className="w-full min-h-[48px] px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] text-[#081F3C] placeholder:text-[#081F3C]/45 border-b border-[#081F3C]/20 focus:border-[#B87332] transition-colors focus:outline-none"
                       />
                     </div>
                   </div>
@@ -771,27 +771,27 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <div className="contact-form-row relative py-6 sm:py-7">
                     <div
                       className="editorial-divider absolute top-0 inset-x-0 h-[1px]"
-                      style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                      style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                     />
 
                     <div className="flex flex-col gap-2">
                       <div className="flex items-baseline justify-between gap-4">
                         <label
                           htmlFor="contact-message"
-                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-black"
+                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-[#081F3C]"
                         >
                           05 — What would you like to discuss?{" "}
-                          <span className="text-black/60 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
+                          <span className="text-[#081F3C]/60 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
                             (required)
                           </span>
                         </label>
                         {errors.message && (
                           <span
                             id="message-error"
-                            className="font-sans text-xs text-black font-semibold flex items-center gap-1.5"
+                            className="font-sans text-xs text-[#081F3C] font-semibold flex items-center gap-1.5"
                             role="alert"
                           >
-                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-black inline-block" />
+                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-[#B87332] inline-block" />
                             {errors.message}
                           </span>
                         )}
@@ -809,10 +809,10 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         aria-invalid={!!errors.message}
                         aria-describedby={errors.message ? "message-error" : undefined}
                         placeholder="Share your interest, background or questions regarding SS Value Plus Fund…"
-                        className={`w-full px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] leading-[1.6] text-black placeholder:text-black/30 border-b transition-colors focus:outline-none resize-y min-h-[110px] ${
+                        className={`w-full px-0 py-2.5 bg-transparent font-sans text-[16px] sm:text-[17px] leading-[1.6] text-[#081F3C] placeholder:text-[#081F3C]/45 border-b transition-colors focus:outline-none resize-y min-h-[110px] ${
                           errors.message
-                            ? "border-black font-medium"
-                            : "border-black/25 focus:border-black"
+                            ? "border-[#B87332] font-medium"
+                            : "border-[#081F3C]/20 focus:border-[#B87332]"
                         }`}
                       />
                     </div>
@@ -824,27 +824,27 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <div className="contact-form-row relative py-6 sm:py-7">
                     <div
                       className="editorial-divider absolute top-0 inset-x-0 h-[1px]"
-                      style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                      style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                     />
 
                     <div className="flex flex-col gap-3">
                       <div className="flex items-baseline justify-between gap-4">
                         <span
                           id="preferred-method-label"
-                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-black"
+                          className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-[0.16em] uppercase text-[#081F3C]"
                         >
                           06 — Preferred contact method{" "}
-                          <span className="text-black/60 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
+                          <span className="text-[#081F3C]/60 font-normal lowercase tracking-normal text-[11px] sm:text-[12px]">
                             (required)
                           </span>
                         </span>
                         {errors.preferredMethod && (
                           <span
                             id="method-error"
-                            className="font-sans text-xs text-black font-semibold flex items-center gap-1.5"
+                            className="font-sans text-xs text-[#081F3C] font-semibold flex items-center gap-1.5"
                             role="alert"
                           >
-                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-black inline-block" />
+                            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-[#B87332] inline-block" />
                             {errors.preferredMethod}
                           </span>
                         )}
@@ -863,8 +863,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                               key={method}
                               className={`group inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full border cursor-pointer select-none transition-all duration-200 min-h-[44px] ${
                                 isSelected
-                                  ? "bg-black text-white border-black"
-                                  : "bg-white text-black border-black/25 hover:border-black"
+                                  ? "bg-[#081F3C] text-white border-[#081F3C]"
+                                  : "bg-white text-[#081F3C] border-[#081F3C]/25 hover:border-[#B87332]"
                               }`}
                             >
                               <input
@@ -880,11 +880,11 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                                 className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-colors ${
                                   isSelected
                                     ? "border-white bg-white"
-                                    : "border-black/40 group-hover:border-black"
+                                    : "border-[#081F3C]/40 group-hover:border-[#081F3C]"
                                 }`}
                               >
                                 {isSelected && (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-black" />
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#081F3C]" />
                                 )}
                               </span>
                               <span className="font-sans text-[14px] sm:text-[15px] font-medium tracking-[0.02em]">
@@ -903,7 +903,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                   <div className="contact-form-row relative py-6 sm:py-8">
                     <div
                       className="editorial-divider absolute top-0 inset-x-0 h-[1px]"
-                      style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                      style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                     />
 
                     <div className="flex flex-col gap-3">
@@ -925,10 +925,10 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                           <div
                             className={`w-5 h-5 border rounded-xs transition-colors flex items-center justify-center ${
                               formData.consent
-                                ? "bg-black border-black text-white"
+                                ? "bg-[#081F3C] border-[#081F3C] text-white"
                                 : errors.consent
-                                ? "border-black bg-black/5"
-                                : "border-black/35 group-hover:border-black bg-white"
+                                ? "border-[#B87332] bg-[#B87332]/5"
+                                : "border-[#081F3C]/35 group-hover:border-[#081F3C] bg-white"
                             }`}
                           >
                             {formData.consent && (
@@ -947,7 +947,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                           </div>
                         </div>
 
-                        <span className="font-sans text-[14px] sm:text-[15px] leading-[1.55] text-black select-none">
+                        <span className="font-sans text-[14px] sm:text-[15px] leading-[1.55] text-[#081F3C] select-none">
                           I consent to Sneh Sagar Wealth Management LLP using the information provided to respond to my enquiry.
                         </span>
                       </label>
@@ -955,15 +955,15 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                       {errors.consent && (
                         <span
                           id="consent-error"
-                          className="font-sans text-xs text-black font-semibold flex items-center gap-1.5 pl-8"
+                          className="font-sans text-xs text-[#081F3C] font-semibold flex items-center gap-1.5 pl-8"
                           role="alert"
                         >
-                          <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-black inline-block" />
+                          <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-[#B87332] inline-block" />
                           {errors.consent}
                         </span>
                       )}
 
-                      <p className="font-sans text-[12px] sm:text-[13px] leading-[1.6] text-black/55 m-0 pl-8">
+                      <p className="font-sans text-[12px] sm:text-[13px] leading-[1.6] text-[#081F3C]/55 m-0 pl-8">
                         Submitting this form does not constitute an application to invest or an offer, recommendation or solicitation.
                       </p>
                     </div>
@@ -971,7 +971,7 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     {/* Bottom Divider */}
                     <div
                       className="editorial-divider absolute bottom-0 inset-x-0 h-[1px]"
-                      style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+                      style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
                     />
                   </div>
 
@@ -982,10 +982,10 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                     <button
                       type="submit"
                       disabled={status === "submitting"}
-                      className={`inline-flex items-center justify-center min-h-[52px] px-8 py-3.5 rounded-full border font-sans text-[13px] sm:text-[14px] font-medium tracking-[0.14em] uppercase transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 select-none ${
+                      className={`inline-flex items-center justify-center min-h-[52px] px-8 py-3.5 rounded-full border font-sans text-[13px] sm:text-[14px] font-medium tracking-[0.14em] uppercase transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#081F3C] focus-visible:ring-offset-2 select-none ${
                         status === "submitting"
-                          ? "bg-black/75 text-white border-black/75 cursor-not-allowed"
-                          : "bg-black text-white border-black hover:bg-white hover:text-black cursor-pointer"
+                          ? "bg-[#081F3C]/75 text-white border-[#081F3C]/75 cursor-not-allowed"
+                          : "bg-[#081F3C] text-white border-[#081F3C] hover:bg-[#B87332] hover:border-[#B87332] cursor-pointer"
                       }`}
                       aria-label="Submit enquiry"
                     >
@@ -1008,8 +1008,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                         <p
                           className={`font-sans text-xs sm:text-[13px] m-0 ${
                             status === "error"
-                              ? "text-black font-semibold"
-                              : "text-black/65"
+                              ? "text-[#081F3C] font-semibold"
+                              : "text-[#081F3C]/65"
                           }`}
                         >
                           {statusMessage}
@@ -1029,46 +1029,36 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           Three-column layout on desktop, stacked on mobile. Thin line dividers.
           ========================================================================= */}
       <section
-        className="contact-info-section bg-white text-black px-[var(--pad,2rem)] py-[clamp(4rem,7vw,6.5rem)]"
+        className="contact-info-section bg-white text-[#081F3C] px-[var(--pad,2rem)] py-[clamp(4rem,7vw,6.5rem)]"
         aria-label="Fund details and contact summary"
       >
         <div className="w-full max-w-[1180px] mx-auto">
           {/* Top Divider */}
           <div
             className="info-divider w-full h-[1px] mb-10 sm:mb-14"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.18)" }}
+            style={{ backgroundColor: "rgba(8, 31, 60, 0.12)" }}
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
             {/* Column 1: Email */}
             <div className="contact-info-col flex flex-col">
-              <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] uppercase text-black/60 block mb-3">
+              <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] uppercase text-[#B87332] block mb-3">
                 Email
               </span>
               <a
                 href="mailto:info@ssvalueplus.com"
-                className="font-serif text-[clamp(22px,2.2vw,30px)] font-normal text-black leading-[1.2] hover:opacity-70 transition-opacity border-b border-black/20 hover:border-black w-fit pb-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded-xs"
+                className="font-serif text-[clamp(22px,2.2vw,30px)] font-normal text-[#081F3C] leading-[1.2] hover:text-[#B87332] transition-colors border-b border-[#081F3C]/20 hover:border-[#B87332] w-fit pb-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#081F3C] rounded-xs"
               >
                 info@ssvalueplus.com
               </a>
             </div>
 
-            {/* Column 2: Minimum Investment */}
+            {/* Column 2: Investment Focus */}
             <div className="contact-info-col flex flex-col">
-              <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] uppercase text-black/60 block mb-3">
-                Minimum investment
-              </span>
-              <p className="font-serif text-[clamp(22px,2.2vw,30px)] font-normal text-black leading-[1.2] m-0">
-                ₹1 crore
-              </p>
-            </div>
-
-            {/* Column 3: Investment Focus */}
-            <div className="contact-info-col flex flex-col">
-              <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] uppercase text-black/60 block mb-3">
+              <span className="font-sans text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] uppercase text-[#B87332] block mb-3">
                 Investment focus
               </span>
-              <p className="font-serif text-[clamp(22px,2.2vw,30px)] font-normal text-black leading-[1.2] m-0">
+              <p className="font-serif text-[clamp(22px,2.2vw,30px)] font-normal text-[#081F3C] leading-[1.2] m-0">
                 Indian small- and mid-cap companies
               </p>
             </div>
@@ -1078,22 +1068,22 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
 
       {/* =========================================================================
           SECTION 4 — ALIGNMENT STATEMENT
-          Short pale-beige accent section near the bottom (#F4F0E7).
+          Warm-ivory accent section near the bottom (#F5F1E8).
           ========================================================================= */}
       <section
         className="contact-alignment-section px-[var(--pad,2rem)] py-[clamp(5rem,9vw,8rem)]"
-        style={{ backgroundColor: "#F4F0E7" }}
+        style={{ backgroundColor: "#F5F1E8" }}
         aria-label="Alignment statement"
       >
         <div className="w-full max-w-[960px] mx-auto text-center flex flex-col items-center">
           <div className="alignment-content flex flex-col items-center max-w-[760px]">
-            <h2 className="font-serif text-[clamp(34px,5.2vw,66px)] font-normal leading-[1.04] tracking-[-0.035em] text-black m-0 mb-6 sm:mb-8">
+            <h2 className="font-serif text-[clamp(34px,5.2vw,66px)] font-normal leading-[1.04] tracking-[-0.035em] text-[#081F3C] m-0 mb-6 sm:mb-8">
               Alignment matters
               <br />
               before capital does.
             </h2>
 
-            <p className="font-sans text-[clamp(15px,1.25vw,18px)] leading-[1.72] font-normal text-black/75 m-0 max-w-[620px]">
+            <p className="font-sans text-[clamp(15px,1.25vw,18px)] leading-[1.72] font-normal text-[#081F3C]/75 m-0 max-w-[620px]">
               SS Value Plus Fund is built around patience, independent thinking and a long-term view of value. A conversation is the first step in understanding whether that perspective is shared.
             </p>
           </div>

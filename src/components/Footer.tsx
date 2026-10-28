@@ -13,7 +13,7 @@ export default function Footer() {
               value.
             </h2>
           </div>
-          <a className="round-link" href="mailto:info@ssvalueplus.com">
+          <a className="footer-contact-btn" href="mailto:info@ssvalueplus.com">
             Write to us <span aria-hidden="true">↗</span>
           </a>
         </div>
@@ -23,10 +23,6 @@ export default function Footer() {
             <p>
               <a href="mailto:info@ssvalueplus.com">info@ssvalueplus.com</a>
             </p>
-          </div>
-          <div>
-            <span className="eyebrow">Minimum investment</span>
-            <p>₹1 crore</p>
           </div>
           <div>
             <span className="eyebrow">Focus</span>

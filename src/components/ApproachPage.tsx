@@ -253,23 +253,23 @@ export default function ApproachPage({ onNavigate }: ApproachPageProps) {
   return (
     <div
       ref={containerRef}
-      className="approach-page bg-white text-black min-h-screen selection:bg-black selection:text-white"
+      className="approach-page bg-[#F5F1E8] text-[#081F3C] min-h-screen selection:bg-[#B87332] selection:text-white"
     >
       {/* =========================================================================
-          Section 1 — Opening Hero (~1 viewport tall, pure white #FFFFFF)
+          Section 1 — Opening Hero (~1 viewport tall, warm ivory #F5F1E8)
           ========================================================================= */}
       <section
-        className="approach-hero relative min-h-[100svh] flex flex-col justify-between items-center text-center px-[var(--pad,2rem)] pt-[calc(7rem+env(safe-area-inset-top,0px))] pb-12"
+        className="approach-hero relative min-h-[100svh] flex flex-col justify-between items-center text-center px-[var(--pad,2rem)] pt-[calc(7rem+env(safe-area-inset-top,0px))] pb-12 bg-[#F5F1E8]"
         aria-label="Investment Approach Hero"
       >
         <div className="w-full max-w-[1100px] mx-auto flex flex-col items-center my-auto">
           {/* Small label */}
-          <p className="approach-hero-label font-sans text-xs sm:text-[13px] font-medium uppercase tracking-[0.22em] text-black/60 m-0 mb-6 sm:mb-8">
+          <p className="approach-hero-label font-sans text-xs sm:text-[13px] font-medium uppercase tracking-[0.22em] text-[#B87332] m-0 mb-6 sm:mb-8">
             OUR APPROACH
           </p>
 
           {/* Heading revealed line-by-line via overflow mask */}
-          <h1 className="font-serif text-[clamp(42px,7.5vw,112px)] font-normal leading-[0.92] tracking-[-0.04em] text-black m-0 max-w-[1050px]">
+          <h1 className="font-serif text-[clamp(42px,7.5vw,112px)] font-normal leading-[0.92] tracking-[-0.04em] text-[#081F3C] m-0 max-w-[1050px]">
             <span className="block overflow-hidden py-[0.05em]">
               <span className="approach-hero-line block">
                 Conviction is built,
@@ -283,7 +283,7 @@ export default function ApproachPage({ onNavigate }: ApproachPageProps) {
           </h1>
 
           {/* Supporting copy */}
-          <p className="approach-hero-supporting font-sans text-[clamp(15px,1.25vw,18px)] leading-[1.65] text-black/62 max-w-[620px] m-0 mt-8 sm:mt-10">
+          <p className="approach-hero-supporting font-sans text-[clamp(15px,1.25vw,18px)] leading-[1.65] text-[#081F3C]/75 max-w-[620px] m-0 mt-8 sm:mt-10">
             Every investment begins with questions. Research, evidence and valuation
             determine whether those questions develop into long-term conviction.
           </p>
@@ -303,11 +303,11 @@ export default function ApproachPage({ onNavigate }: ApproachPageProps) {
           }}
           aria-label="Follow the process"
         >
-          <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.22em] text-black/60">
+          <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.22em] text-[#B87332]">
             Follow the process
           </span>
-          <div className="w-px h-8 bg-black/20 overflow-hidden relative">
-            <div className="w-full h-full bg-black animate-scroll-line" />
+          <div className="w-px h-8 bg-[#081F3C]/20 overflow-hidden relative">
+            <div className="w-full h-full bg-[#081F3C] animate-scroll-line" />
           </div>
         </div>
       </section>
@@ -316,9 +316,9 @@ export default function ApproachPage({ onNavigate }: ApproachPageProps) {
           Section 2 — Horizontal Investment Process (The 7 Stages)
           ========================================================================= */}
       <InvestmentProcessTimeline
-        textColor="#000000"
-        mutedTextColor="rgba(0, 0, 0, 0.62)"
-        activeColor="#000000"
+        textColor="#081F3C"
+        mutedTextColor="rgba(8, 31, 60, 0.65)"
+        activeColor="#B87332"
         backgroundColor="#ffffff"
         duration={1.2}
       />
@@ -327,22 +327,22 @@ export default function ApproachPage({ onNavigate }: ApproachPageProps) {
           Section 3 — Research is Continuous (Editorial Section)
           ========================================================================= */}
       <section
-        className="approach-review relative w-full bg-white px-[var(--pad,2rem)] py-24 sm:py-32 md:py-44"
+        className="approach-review relative w-full bg-[#F5F1E8] px-[var(--pad,2rem)] py-24 sm:py-32 md:py-44"
         aria-label="Continuous Review Philosophy"
       >
         <div className="max-w-[1100px] mx-auto">
           {/* Animated thin horizontal divider (draws left to right) */}
-          <div className="review-divider w-full h-px bg-black/[0.18] mb-12 sm:mb-16 origin-left" />
+          <div className="review-divider w-full h-px bg-[#081F3C]/[0.12] mb-12 sm:mb-16 origin-left" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
             <div className="lg:col-span-4">
-              <span className="review-label font-sans text-xs uppercase tracking-[0.24em] text-black/60 block">
+              <span className="review-label font-sans text-xs uppercase tracking-[0.24em] text-[#B87332] block">
                 CONTINUOUS REVIEW
               </span>
             </div>
 
             <div className="lg:col-span-8 flex flex-col gap-8">
-              <h2 className="font-serif text-[clamp(36px,5.5vw,82px)] font-normal leading-[0.94] tracking-[-0.04em] text-black m-0">
+              <h2 className="font-serif text-[clamp(36px,5.5vw,82px)] font-normal leading-[0.94] tracking-[-0.04em] text-[#081F3C] m-0">
                 <span className="block overflow-hidden py-[0.05em]">
                   <span className="review-heading-line block">
                     Ownership does not
@@ -355,7 +355,7 @@ export default function ApproachPage({ onNavigate }: ApproachPageProps) {
                 </span>
               </h2>
 
-              <p className="review-supporting font-sans text-[clamp(16px,1.25vw,19px)] leading-[1.65] text-black/62 max-w-[620px] m-0">
+              <p className="review-supporting font-sans text-[clamp(16px,1.25vw,19px)] leading-[1.65] text-[#081F3C]/75 max-w-[620px] m-0">
                 New information, changing economics and management decisions are
                 continuously considered against the original investment thesis.
                 Patience remains valuable only while the underlying reasoning
@@ -370,17 +370,17 @@ export default function ApproachPage({ onNavigate }: ApproachPageProps) {
           Section 4 — Closing Transition
           ========================================================================= */}
       <section
-        className="approach-closing relative w-full bg-white border-t border-black/[0.18] px-[var(--pad,2rem)] py-24 sm:py-32 md:py-40"
+        className="approach-closing relative w-full bg-white border-t border-[#081F3C]/[0.12] px-[var(--pad,2rem)] py-24 sm:py-32 md:py-40"
         aria-label="Explore the Fund Closing Transition"
       >
         <div className="max-w-[1100px] mx-auto flex flex-col items-start">
-          <h2 className="closing-heading font-serif text-[clamp(34px,5vw,72px)] font-normal leading-[0.96] tracking-[-0.035em] text-black m-0 max-w-[16ch]">
+          <h2 className="closing-heading font-serif text-[clamp(34px,5vw,72px)] font-normal leading-[0.96] tracking-[-0.035em] text-[#081F3C] m-0 max-w-[16ch]">
             Understand the fund
             <br />
             behind the process.
           </h2>
 
-          <p className="closing-supporting font-sans text-[clamp(15px,1.2vw,18px)] leading-[1.65] text-black/62 max-w-[560px] m-0 mt-6 sm:mt-8">
+          <p className="closing-supporting font-sans text-[clamp(15px,1.2vw,18px)] leading-[1.65] text-[#081F3C]/75 max-w-[560px] m-0 mt-6 sm:mt-8">
             Explore the investment focus and long-term perspective that guide SS
             Value Plus Fund.
           </p>
@@ -392,7 +392,7 @@ export default function ApproachPage({ onNavigate }: ApproachPageProps) {
                 e.preventDefault();
                 onNavigate("/the-fund");
               }}
-              className="inline-flex items-center gap-2 font-sans text-base font-medium text-black border-b border-black pb-1 hover:opacity-70 transition-opacity"
+              className="inline-flex items-center gap-2 font-sans text-base font-medium text-[#081F3C] border-b border-[#081F3C] pb-1 hover:text-[#B87332] hover:border-[#B87332] transition-colors"
             >
               Explore the fund <span aria-hidden="true">→</span>
             </a>
@@ -403,7 +403,7 @@ export default function ApproachPage({ onNavigate }: ApproachPageProps) {
                 e.preventDefault();
                 onNavigate("/contact");
               }}
-              className="inline-flex items-center gap-2 font-sans text-sm font-normal text-black/62 hover:text-black border-b border-black/20 hover:border-black pb-1 transition-colors"
+              className="inline-flex items-center gap-2 font-sans text-sm font-normal text-[#081F3C]/65 hover:text-[#B87332] border-b border-[#081F3C]/20 hover:border-[#B87332] pb-1 transition-colors"
             >
               Start a conversation <span aria-hidden="true">→</span>
             </a>

@@ -181,9 +181,9 @@ export const allJourneyItems: JourneyItem[] = [
 ];
 
 export default function InvestmentProcessTimeline({
-  textColor = "#000000",
-  mutedTextColor = "rgba(0, 0, 0, 0.62)",
-  activeColor = "#000000",
+  textColor = "#081F3C",
+  mutedTextColor = "rgba(8, 31, 60, 0.65)",
+  activeColor = "#B87332",
   backgroundColor = "#ffffff",
   duration = 1.2,
 }: InvestmentProcessTimelineProps) {
@@ -461,27 +461,27 @@ export default function InvestmentProcessTimeline({
       <section
         ref={sectionRef}
         id="investment-process"
-        className="w-full bg-white px-6 py-20 text-black md:px-12 lg:px-20"
+        className="w-full bg-white px-6 py-20 text-[#081F3C] md:px-12 lg:px-20"
         style={sectionStyle}
         aria-label="Investment Process Stages"
       >
         <div className="mx-auto max-w-5xl">
-          <p className="font-sans text-xs uppercase tracking-[0.25em] text-black/60">
+          <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#B87332]">
             An investment’s journey
           </p>
 
-          <h2 className="mt-6 max-w-[15ch] font-serif text-[clamp(2.5rem,5.5vw,5rem)] leading-[0.94] text-black">
+          <h2 className="mt-6 max-w-[15ch] font-serif text-[clamp(2.5rem,5.5vw,5rem)] leading-[0.94] text-[#081F3C]">
             From the first question to lasting conviction.
           </h2>
 
-          <p className="mt-4 font-sans text-xs uppercase tracking-[0.2em] text-black/50">
+          <p className="mt-4 font-sans text-xs uppercase tracking-[0.2em] text-[#081F3C]/60">
             Research → Ownership
           </p>
 
           {/* Clean vertical sequential timeline */}
           <div className="relative mt-16 pl-6 sm:pl-10">
             {/* Continuous vertical line */}
-            <div className="absolute left-2 sm:left-3 top-3 bottom-8 w-px bg-black/[0.18]" />
+            <div className="absolute left-2 sm:left-3 top-3 bottom-8 w-px bg-[#081F3C]/[0.12]" />
 
             <div className="space-y-12 sm:space-y-16">
               {allJourneyItems.map((item) => (
@@ -491,16 +491,16 @@ export default function InvestmentProcessTimeline({
                 >
                   {/* Dot on vertical line */}
                   <div
-                    className="absolute -left-6 sm:-left-10 top-1.5 size-3 rounded-full bg-black ring-4 ring-white"
+                    className="absolute -left-6 sm:-left-10 top-1.5 size-3 rounded-full bg-[#B87332] ring-4 ring-white"
                     style={activeStyle}
                   />
 
                   <div className="flex flex-col gap-2">
-                    <p className="font-sans text-xs uppercase tracking-[0.22em] text-black/60">
+                    <p className="font-sans text-xs uppercase tracking-[0.22em] text-[#B87332]">
                       {item.stage} / {item.label}
                     </p>
 
-                    <h3 className="font-serif text-[clamp(1.75rem,3.2vw,2.5rem)] leading-tight text-black">
+                    <h3 className="font-serif text-[clamp(1.75rem,3.2vw,2.5rem)] leading-tight text-[#081F3C]">
                       {item.title}
                     </h3>
 
@@ -525,7 +525,7 @@ export default function InvestmentProcessTimeline({
     <section
       ref={sectionRef}
       id="investment-process"
-      className="relative w-full overflow-hidden bg-white text-black"
+      className="relative w-full overflow-hidden bg-white text-[#081F3C]"
       style={sectionStyle}
       aria-label="Investment Process Interactive Journey"
     >
@@ -538,13 +538,13 @@ export default function InvestmentProcessTimeline({
           className="flex min-w-max items-center h-full pl-[5vw] pr-[6vw]"
         >
           {/* Opening Typographic Panel (No stock imagery) */}
-          <div className="relative flex h-[66vh] w-[44vw] min-w-[480px] max-w-[700px] shrink-0 flex-col justify-between border-y border-black/[0.18] py-10 px-8 mr-[4vw] bg-white">
+          <div className="relative flex h-[66vh] w-[44vw] min-w-[480px] max-w-[700px] shrink-0 flex-col justify-between border-y border-[#081F3C]/[0.12] py-10 px-8 mr-[4vw] bg-white">
             <div>
-              <p className="font-sans text-xs uppercase tracking-[0.25em] text-black/60">
+              <p className="font-sans text-xs uppercase tracking-[0.25em] text-[#B87332]">
                 An investment’s journey
               </p>
 
-              <h2 className="mt-8 max-w-[13ch] font-serif text-[clamp(3.2rem,5.2vw,6.2rem)] leading-[0.92] text-black">
+              <h2 className="mt-8 max-w-[13ch] font-serif text-[clamp(3.2rem,5.2vw,6.2rem)] leading-[0.92] text-[#081F3C]">
                 From the first question
                 <br />
                 to lasting conviction.
@@ -553,20 +553,20 @@ export default function InvestmentProcessTimeline({
 
             {/* Large translucent SS Monogram watermark */}
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden select-none">
-              <span className="font-serif text-[26vw] leading-none text-black/[0.06]">
+              <span className="font-serif text-[26vw] leading-none text-[#081F3C]/[0.04]">
                 SS
               </span>
             </div>
 
-            <div className="relative z-10 flex items-center justify-between border-t border-black/[0.12] pt-4">
+            <div className="relative z-10 flex items-center justify-between border-t border-[#081F3C]/[0.12] pt-4">
               <p
                 className="flex items-center gap-3 font-sans text-xs uppercase tracking-[0.22em]"
                 style={mutedTextStyle}
               >
                 Research → Ownership
-                <span aria-hidden="true" className="text-black">→</span>
+                <span aria-hidden="true" className="text-[#081F3C]">→</span>
               </p>
-              <span className="font-sans text-xs uppercase tracking-[0.2em] text-black/40">
+              <span className="font-sans text-xs uppercase tracking-[0.2em] text-[#081F3C]/50">
                 01 — 07
               </span>
             </div>
@@ -575,7 +575,7 @@ export default function InvestmentProcessTimeline({
           {/* Sequential 7-Stage Horizontal Timeline */}
           <div className="relative flex h-[72vh] items-center shrink-0">
             {/* Center horizontal line guide running through all stages */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-px bg-black/[0.18]" />
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-px bg-[#081F3C]/[0.12]" />
 
             {/* Active progressive line drawn as user scrolls */}
             <div
@@ -599,12 +599,12 @@ export default function InvestmentProcessTimeline({
                     <>
                       {/* Top text card */}
                       <article className="h-1/2 flex flex-col justify-end pb-8">
-                        <p className="font-sans text-xs uppercase tracking-[0.22em] text-black/60">
+                        <p className="font-sans text-xs uppercase tracking-[0.22em] text-[#B87332]">
                           {item.stage} / {item.label}
                         </p>
 
                         <h3
-                          className={`process-title-${item.id} mt-3 font-serif text-[clamp(1.85rem,2.5vw,3rem)] leading-[0.98] text-black`}
+                          className={`process-title-${item.id} mt-3 font-serif text-[clamp(1.85rem,2.5vw,3rem)] leading-[0.98] text-[#081F3C]`}
                         >
                           {item.title}
                         </h3>
@@ -651,12 +651,12 @@ export default function InvestmentProcessTimeline({
 
                       {/* Bottom text card */}
                       <article className="h-1/2 flex flex-col justify-start pt-8">
-                        <p className="font-sans text-xs uppercase tracking-[0.22em] text-black/60">
+                        <p className="font-sans text-xs uppercase tracking-[0.22em] text-[#B87332]">
                           {item.stage} / {item.label}
                         </p>
 
                         <h3
-                          className={`process-title-${item.id} mt-3 font-serif text-[clamp(1.85rem,2.5vw,3rem)] leading-[0.98] text-black`}
+                          className={`process-title-${item.id} mt-3 font-serif text-[clamp(1.85rem,2.5vw,3rem)] leading-[0.98] text-[#081F3C]`}
                         >
                           {item.title}
                         </h3>

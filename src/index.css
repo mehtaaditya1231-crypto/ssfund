@@ -1,20 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-foreground: #16211f;
-  --color-muted-foreground: #58615f;
-  --color-background: #f4f0e7;
-  --color-primary: #1b2e2a;
-  --color-accent: #b45e3f;
+  --color-foreground: #081F3C;
+  --color-muted-foreground: rgba(8, 31, 60, 0.65);
+  --color-background: #F5F1E8;
+  --color-primary: #081F3C;
+  --color-accent: #B87332;
+
+  --color-ss-navy: #081F3C;
+  --color-ss-copper: #B87332;
+  --color-ss-ivory: #F5F1E8;
+  --color-ss-white: #FFFFFF;
+
+  --color-ss-navy-80: rgba(8, 31, 60, 0.80);
+  --color-ss-navy-65: rgba(8, 31, 60, 0.65);
+  --color-ss-navy-20: rgba(8, 31, 60, 0.20);
+  --color-ss-navy-12: rgba(8, 31, 60, 0.12);
+
+  --color-ss-copper-20: rgba(184, 115, 50, 0.20);
+  --color-ss-copper-12: rgba(184, 115, 50, 0.12);
+
+  --color-ss-white-70: rgba(255, 255, 255, 0.70);
+  --color-ss-white-20: rgba(255, 255, 255, 0.20);
+
+  --font-display: "Bodoni Moda", serif;
+  --font-serif: "Bodoni Moda", serif;
+  --font-sans: "Manrope", sans-serif;
 }
 
 :root {
-  --paper: #f4f0e7;
-  --ink: #16211f;
-  --pine: #1b2e2a;
-  --sage: #b9c1a9;
-  --rust: #b45e3f;
-  --line: rgba(22, 33, 31, 0.18);
+  --ss-navy: #081F3C;
+  --ss-copper: #B87332;
+  --ss-ivory: #F5F1E8;
+  --ss-white: #FFFFFF;
+
+  --ss-navy-80: rgba(8, 31, 60, 0.80);
+  --ss-navy-65: rgba(8, 31, 60, 0.65);
+  --ss-navy-20: rgba(8, 31, 60, 0.20);
+  --ss-navy-12: rgba(8, 31, 60, 0.12);
+
+  --ss-copper-20: rgba(184, 115, 50, 0.20);
+  --ss-copper-12: rgba(184, 115, 50, 0.12);
+
+  --ss-white-70: rgba(255, 255, 255, 0.70);
+  --ss-white-20: rgba(255, 255, 255, 0.20);
+
+  --paper: #F5F1E8;
+  --ink: #081F3C;
+  --pine: #081F3C;
+  --sage: rgba(8, 31, 60, 0.65);
+  --rust: #B87332;
+  --line: rgba(8, 31, 60, 0.12);
   --pad: clamp(1.25rem, 4vw, 4.5rem);
   --page-padding: var(--pad);
 }
@@ -25,7 +61,7 @@
 
 html,
 body {
-  background-color: #ffffff;
+  background-color: var(--ss-ivory);
 }
 
 html {
@@ -34,11 +70,11 @@ html {
 
 body {
   margin: 0;
-  background-color: #ffffff;
-  color: var(--ink);
-  font-family: "DM Sans", sans-serif;
+  background-color: var(--ss-ivory);
+  color: var(--ss-navy);
+  font-family: "Manrope", sans-serif;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
@@ -57,20 +93,23 @@ button, input, textarea {
 }
 
 ::selection {
-  background: var(--rust);
-  color: white;
+  background: var(--ss-copper);
+  color: var(--ss-white);
 }
 
 .serif {
-  font-family: "Newsreader", Georgia, serif;
+  font-family: "Bodoni Moda", serif;
   font-weight: 400;
+  letter-spacing: -0.025em;
 }
 
 .eyebrow {
+  font-family: "Manrope", sans-serif;
   font-size: 0.73rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
+  color: var(--ss-copper);
 }
 
 .rule {
@@ -79,11 +118,11 @@ button, input, textarea {
 }
 
 /* ==========================================================================
-   Hero Section — Pure White (#FFFFFF) & Pure Black (#000000) Minimal Identity
+   Hero Section — Warm Ivory (#F5F1E8) & Sneh Sagar Navy (#081F3C)
    ========================================================================== */
 .hero {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--ss-ivory);
+  color: var(--ss-navy);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -116,23 +155,23 @@ button, input, textarea {
 }
 
 .hero-label {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--ss-copper);
   margin: 0 0 clamp(1.5rem, 3.5vh, 2.5rem);
   will-change: opacity, transform;
 }
 
 .hero-title {
-  font-family: "Newsreader", Georgia, serif;
+  font-family: "Bodoni Moda", serif;
   font-weight: 400;
   font-size: clamp(64px, 8vw, 128px);
-  line-height: 0.92;
-  letter-spacing: -0.04em;
-  color: #000000;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: var(--ss-navy);
   margin: 0;
   max-width: 1000px;
   text-align: center;
@@ -150,11 +189,11 @@ button, input, textarea {
 }
 
 .hero-supporting {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: clamp(15px, 1.25vw, 17px);
   line-height: 1.6;
   font-weight: 400;
-  color: #000000;
+  color: var(--ss-navy-80);
   max-width: 600px;
   margin: clamp(2rem, 4vh, 3.25rem) auto 0;
   text-align: center;
@@ -164,7 +203,7 @@ button, input, textarea {
 .round-link {
   width: 8.5rem;
   height: 8.5rem;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--ss-navy);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -174,15 +213,16 @@ button, input, textarea {
   transition: 0.35s;
   margin-left: auto;
   cursor: pointer;
+  color: var(--ss-navy);
+  background: transparent;
 }
 
 .round-link:hover {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--ss-navy);
+  color: var(--ss-white);
+  border-color: var(--ss-navy);
   transform: rotate(-7deg);
 }
-
-
 
 section {
   padding: clamp(5rem, 10vw, 9rem) var(--pad);
@@ -192,35 +232,35 @@ section {
   display: grid;
   grid-template-columns: 0.55fr 1.45fr;
   gap: clamp(2rem, 8vw, 8rem);
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  background-color: #ffffff;
-  color: #000000;
+  border-top: 1px solid var(--ss-navy-12);
+  background-color: var(--ss-white);
+  color: var(--ss-navy);
   position: relative;
   z-index: 2;
 }
 
 .intro .eyebrow {
-  color: #000000;
-  opacity: 0.6;
+  color: var(--ss-copper);
 }
 
 .intro-copy {
+  font-family: "Bodoni Moda", serif;
   font-size: clamp(2.3rem, 5.2vw, 5.4rem);
   line-height: 1.03;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.025em;
   margin: 0;
-  color: #000000;
+  color: var(--ss-navy);
 }
 
 .intro-copy em {
-  color: #000000;
+  color: var(--ss-navy);
   font-style: normal;
   font-weight: 400;
 }
 
 .intro ::selection {
-  background: #000000;
-  color: #ffffff;
+  background: var(--ss-copper);
+  color: var(--ss-white);
 }
 
 .small-note {
@@ -230,20 +270,19 @@ section {
 }
 
 .intro .small-note {
-  color: #000000;
-  opacity: 0.65;
+  color: var(--ss-navy-65);
 }
 
 .philosophy {
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: var(--ss-navy);
+  color: var(--ss-ivory);
   position: relative;
   overflow: hidden;
 }
 
 .philosophy ::selection {
-  background: #ffffff;
-  color: #000000;
+  background: var(--ss-copper);
+  color: var(--ss-white);
 }
 
 .philosophy:after {
@@ -251,8 +290,8 @@ section {
   position: absolute;
   right: -0.04em;
   bottom: -0.35em;
-  font: 400 clamp(18rem, 47vw, 48rem)/1 "Newsreader", serif;
-  color: rgba(220, 235, 218, 0.07);
+  font: 400 clamp(18rem, 47vw, 48rem)/1 "Bodoni Moda", serif;
+  color: rgba(245, 241, 232, 0.03);
   pointer-events: none;
 }
 
@@ -261,23 +300,24 @@ section {
   justify-content: space-between;
   align-items: end;
   padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid var(--ss-white-20);
   position: relative;
   z-index: 2;
 }
 
 .section-head h2 {
+  font-family: "Bodoni Moda", serif;
   font-size: clamp(3rem, 7vw, 7.5rem);
-  line-height: 0.9;
-  letter-spacing: -0.055em;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
   margin: 0;
   max-width: 900px;
-  color: #FFFFFF;
+  color: var(--ss-ivory);
 }
 
 .section-head p {
   max-width: 320px;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--ss-white-70);
   font-size: 0.9rem;
 }
 
@@ -291,23 +331,23 @@ section {
   grid-template-columns: 70px 1fr minmax(220px, 0.55fr);
   gap: 2rem;
   padding: 2rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid var(--ss-white-20);
   align-items: start;
 }
 
 .principle .eyebrow {
-  color: #FFFFFF;
+  color: var(--ss-copper);
 }
 
 .principle h3 {
   margin: 0;
-  font: 400 clamp(1.7rem, 3vw, 3.4rem)/1 "Newsreader", serif;
-  color: #FFFFFF;
+  font: 400 clamp(1.7rem, 3vw, 3.4rem)/1 "Bodoni Moda", serif;
+  color: var(--ss-ivory);
 }
 
 .principle p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--ss-white-70);
   max-width: 340px;
   font-size: 0.92rem;
 }
@@ -316,19 +356,21 @@ section {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: clamp(3rem, 9vw, 9rem);
-  background-color: #FFFFFF;
-  color: #000000;
+  background-color: var(--ss-white);
+  color: var(--ss-navy);
   position: relative;
   z-index: 2;
+  border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
+  margin-top: -2rem;
 }
 
 .lens ::selection {
-  background: #000000;
-  color: #ffffff;
+  background: var(--ss-copper);
+  color: var(--ss-white);
 }
 
 .lens .eyebrow {
-  color: #000000;
+  color: var(--ss-copper);
 }
 
 .lens-title {
@@ -338,50 +380,64 @@ section {
 }
 
 .lens-title h2 {
+  font-family: "Bodoni Moda", serif;
   font-size: clamp(3.4rem, 7vw, 7rem);
-  line-height: 0.85;
-  letter-spacing: -0.055em;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
   margin: 1rem 0;
-  color: #000000;
+  color: var(--ss-navy);
 }
 
 .lens-title h2 em {
-  color: #000000;
+  color: var(--ss-navy);
   font-style: normal;
   font-weight: 400;
 }
 
-.criteria {
-  counter-reset: item;
-}
-
 .criterion {
-  counter-increment: item;
   padding: 2.5rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.16);
+  border-top: 1px solid var(--ss-navy-12);
   display: grid;
-  grid-template-columns: 50px 1fr;
-  gap: 1rem;
+  grid-template-columns: 76px 1fr;
+  gap: 1.5rem;
+  align-items: start;
 }
 
 .criterion:before {
-  content: "0" counter(item);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  color: #000000;
-  padding-top: 0.4rem;
+  content: none;
+  display: none;
+}
+
+.criterion-icon-container {
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.criterion-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .criterion h3 {
-  font: 400 clamp(1.8rem, 3vw, 3rem)/1 "Newsreader", serif;
+  font: 400 clamp(1.8rem, 3vw, 3rem)/1.05 "Bodoni Moda", serif;
   margin: 0 0 0.7rem;
-  color: #000000;
+  color: var(--ss-navy);
 }
 
 .criterion p {
   margin: 0;
   max-width: 500px;
-  color: rgba(0, 0, 0, 0.62);
+  color: var(--ss-navy-65);
 }
 
 .quote {
@@ -397,11 +453,9 @@ section {
   margin-left: auto;
   margin-right: auto;
   margin-top: clamp(5rem, 9vw, 9rem);
-  background: rgba(8, 8, 8, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(241, 234, 223, 0.18);
-  color: #F1EADF;
+  background: var(--ss-navy);
+  border: 1px solid var(--ss-white-20);
+  color: var(--ss-ivory);
   border-radius: min(3vw, 2rem);
   padding: clamp(2rem, 7vw, 7rem);
   position: relative;
@@ -416,8 +470,8 @@ section {
 }
 
 .quote-inner ::selection {
-  background: #F1EADF;
-  color: #000000;
+  background: var(--ss-copper);
+  color: var(--ss-white);
 }
 
 .quote-inner:before {
@@ -425,19 +479,19 @@ section {
   position: absolute;
   right: 3%;
   top: -0.2em;
-  font: 400 clamp(15rem, 40vw, 40rem)/1 "Newsreader", serif;
-  color: rgba(241, 234, 223, 0.08);
+  font: 400 clamp(15rem, 40vw, 40rem)/1 "Bodoni Moda", serif;
+  color: rgba(245, 241, 232, 0.05);
   transform: translateY(var(--quote-mark, 0));
   transition: transform 0.1s linear;
 }
 
 .quote blockquote {
-  font: 400 clamp(2.2rem, 5.2vw, 5.5rem)/1.02 "Newsreader", serif;
-  letter-spacing: -0.04em;
+  font: 400 clamp(2.2rem, 5.2vw, 5.5rem)/1.02 "Bodoni Moda", serif;
+  letter-spacing: -0.025em;
   max-width: 1200px;
   margin: 0;
   position: relative;
-  color: #F1EADF;
+  color: var(--ss-ivory);
 }
 
 .quote-word {
@@ -446,7 +500,7 @@ section {
   transform: translateY(0.55em) rotate(1.5deg);
   filter: blur(5px);
   transition: opacity 0.65s, transform 0.65s, filter 0.65s;
-  color: #F1EADF;
+  color: var(--ss-ivory);
 }
 
 .quote-word.assembled {
@@ -457,6 +511,7 @@ section {
 
 .quote cite {
   font-style: normal;
+  font-family: "Manrope", sans-serif;
   margin-top: 3rem;
   display: flex;
   gap: 1rem;
@@ -464,7 +519,7 @@ section {
   opacity: 0;
   transform: translateY(15px);
   transition: 0.7s 0.35s;
-  color: rgba(241, 234, 223, 0.64);
+  color: var(--ss-white-70);
 }
 
 .quote cite.assembled {
@@ -476,7 +531,7 @@ section {
   content: "";
   width: 3rem;
   height: 1px;
-  background: rgba(241, 234, 223, 0.18);
+  background: var(--ss-copper);
 }
 
 .team-head {
@@ -488,23 +543,24 @@ section {
 }
 
 .team-head h2 {
+  font-family: "Bodoni Moda", serif;
   font-size: clamp(3.8rem, 8vw, 8rem);
-  line-height: 0.85;
-  letter-spacing: -0.06em;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
   margin: 0;
-  color: #FFFFFF;
+  color: var(--ss-ivory);
 }
 
 .team-head p {
   max-width: 410px;
   margin-left: auto;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--ss-white-70);
 }
 
 .people {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-top: 1px solid var(--ss-white-20);
 }
 
 .person {
@@ -513,7 +569,7 @@ section {
 
 .person:first-child {
   padding-right: clamp(2rem, 5vw, 5rem);
-  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  border-right: 1px solid var(--ss-white-20);
 }
 
 .person:last-child {
@@ -521,7 +577,7 @@ section {
 }
 
 .team-wrap .eyebrow {
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--ss-copper);
 }
 
 .portrait {
@@ -553,14 +609,14 @@ section {
 }
 
 .person h3 {
-  font: 400 clamp(2rem, 3.5vw, 3.7rem)/1 "Newsreader", serif;
+  font: 400 clamp(2rem, 3.5vw, 3.7rem)/1 "Bodoni Moda", serif;
   margin: 0.4rem 0;
-  color: #FFFFFF;
+  color: var(--ss-ivory);
 }
 
 .person p {
   max-width: 520px;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--ss-white-70);
 }
 
 main {
@@ -574,14 +630,14 @@ main {
   width: 100%;
   height: auto;
   min-height: 0;
-  background-color: #ffffff;
+  background-color: var(--ss-navy);
 }
 
 .site-footer,
 .contact {
   width: 100%;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--ss-navy);
+  color: var(--ss-ivory);
   padding: clamp(4.5rem, 7vw, 6.5rem) var(--pad) clamp(20px, 3vw, 40px);
   border-radius: 0;
   margin-top: 0;
@@ -595,13 +651,13 @@ main {
   width: 100%;
   height: auto;
   min-height: 0;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--ss-navy);
+  color: var(--ss-ivory);
 }
 
 .contact ::selection {
-  background: #000000;
-  color: #ffffff;
+  background: var(--ss-copper);
+  color: var(--ss-white);
 }
 
 .contact-top {
@@ -612,7 +668,7 @@ main {
 }
 
 .contact .eyebrow {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--ss-copper);
   opacity: 1;
 }
 
@@ -622,41 +678,83 @@ main {
 }
 
 .contact h2 {
+  font-family: "Bodoni Moda", serif;
   font-size: clamp(4rem, 10vw, 10rem);
-  line-height: 0.78;
-  letter-spacing: -0.07em;
+  line-height: 0.88;
+  letter-spacing: -0.035em;
   margin: 0;
-  color: #000000;
+  color: var(--ss-ivory);
 }
 
+.footer-contact-btn,
 .contact .round-link {
-  border-color: #000000;
-  color: #000000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: auto;
+  min-width: 180px;
+  height: 54px;
+  padding: 0 28px;
+  border-radius: 14px;
   background-color: transparent;
+  border: 1px solid rgba(245, 241, 232, 0.65);
+  color: #F5F1E8;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  justify-self: end;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease;
+  will-change: transform;
 }
 
+.footer-contact-btn:hover,
 .contact .round-link:hover {
-  background-color: #000000;
-  color: #FFFFFF;
-  border-color: #000000;
+  background-color: #F5F1E8;
+  border-color: #F5F1E8;
+  color: #081F3C;
+  transform: translateY(-2px);
+}
+
+.footer-contact-btn:focus-visible,
+.contact .round-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #B87332;
 }
 
 .contact-meta {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
   padding: clamp(3rem, 5vw, 4.5rem) 0 2.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.16);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  border-top: 1px solid var(--ss-white-20);
+  border-bottom: 1px solid var(--ss-white-20);
+}
+
+.contact-meta .eyebrow {
+  color: var(--ss-copper);
 }
 
 .contact-meta p {
   margin: 0.4rem 0;
-  color: #000000;
+  color: var(--ss-white-70);
 }
 
 .contact-meta p a {
-  color: #000000;
+  color: var(--ss-white-70);
+  transition: color 0.2s ease;
+}
+
+.contact-meta p a:hover {
+  color: var(--ss-copper);
 }
 
 .legal {
@@ -665,17 +763,17 @@ main {
   gap: 2rem;
   padding-top: 1.5rem;
   font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--ss-white-70);
   opacity: 1;
 }
 
 .legal a {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--ss-white-70);
   transition: color 0.2s ease;
 }
 
 .legal a:hover {
-  color: #000000;
+  color: var(--ss-copper);
 }
 
 .legal-links {
@@ -686,46 +784,30 @@ main {
 #team {
   position: relative;
   z-index: 4;
-  background-color: #000000;
-  color: #FFFFFF;
-}
-
-.lens {
-  position: relative;
-  z-index: 2;
-  background-color: #FFFFFF;
-}
-
-.philosophy {
-  z-index: 3;
-}
-
-.lens {
-  background-color: #FFFFFF;
-  border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
-  margin-top: -2rem;
+  background-color: var(--ss-navy);
+  color: var(--ss-ivory);
 }
 
 .team-wrap {
   position: relative;
   z-index: 4;
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: var(--ss-navy);
+  color: var(--ss-ivory);
   border-radius: clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0 0;
   margin-top: -2rem;
 }
 
 .team-wrap ::selection {
-  background: #ffffff;
-  color: #000000;
+  background: var(--ss-copper);
+  color: var(--ss-white);
 }
 
 .intro-screen {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: var(--pine);
-  color: var(--paper);
+  background: var(--ss-navy);
+  color: var(--ss-ivory);
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -755,7 +837,7 @@ main {
 
 .intro-emblem circle {
   fill: none;
-  stroke: rgba(244, 240, 231, 0.9);
+  stroke: var(--ss-copper);
   stroke-width: 0.6;
   stroke-dasharray: 302;
   stroke-dashoffset: 302;
@@ -763,11 +845,12 @@ main {
 }
 
 .intro-monogram {
-  font: 400 clamp(3.5rem, 8vw, 7rem)/1 "Newsreader", serif;
-  letter-spacing: -0.08em;
+  font: 400 clamp(3.5rem, 8vw, 7rem)/1 "Bodoni Moda", serif;
+  letter-spacing: -0.05em;
   opacity: 0;
   transform: scale(0.85);
   animation: markIn 0.7s 0.45s forwards;
+  color: var(--ss-ivory);
 }
 
 .intro-name {
@@ -778,6 +861,7 @@ main {
   font-size: 0.7rem;
   opacity: 0;
   animation: fadeIn 0.5s 1s forwards;
+  color: var(--ss-copper);
 }
 
 @keyframes drawCircle {
@@ -809,6 +893,49 @@ main {
   opacity: 1;
   transform: none;
 }
+
+/* ==========================================================================
+   Buttons and Links Design Tokens
+   ========================================================================== */
+.btn-primary-dark {
+  background: #081F3C;
+  color: #FFFFFF;
+  border: 1px solid #081F3C;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-dark:hover {
+  background: #B87332;
+  border-color: #B87332;
+  color: #FFFFFF;
+}
+
+.btn-outlined-light {
+  background: transparent;
+  color: #081F3C;
+  border: 1px solid rgba(8, 31, 60, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-outlined-light:hover {
+  background: #081F3C;
+  color: #FFFFFF;
+  border-color: #081F3C;
+}
+
+.btn-navy {
+  background: transparent;
+  color: #F5F1E8;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  transition: all 0.3s ease;
+}
+
+.btn-navy:hover {
+  background: #F5F1E8;
+  color: #081F3C;
+  border-color: #F5F1E8;
+}
+
 @media (max-width: 800px) {
   .hero {
     min-height: 100svh;
@@ -828,8 +955,8 @@ main {
   }
   .hero-title {
     font-size: clamp(48px, 14vw, 76px);
-    line-height: 0.95;
-    letter-spacing: -0.035em;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
   }
   .hero-supporting {
     font-size: 15px;
@@ -863,6 +990,14 @@ main {
   .lens-title {
     position: static;
   }
+  .criterion {
+    grid-template-columns: 60px 1fr;
+    gap: 1.25rem;
+  }
+  .criterion-icon-container {
+    width: 60px;
+    height: 60px;
+  }
   .team-head {
     grid-template-columns: 1fr;
   }
@@ -878,10 +1013,20 @@ main {
   }
   .person:last-child {
     padding-left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid var(--ss-white-20);
   }
   .contact-top {
     grid-template-columns: 1fr;
+  }
+  .footer-contact-btn,
+  .contact .round-link {
+    min-width: 160px;
+    height: 50px;
+    padding: 0 24px;
+    border-radius: 12px;
+    font-size: 13px;
+    justify-self: start;
+    margin-left: 0;
   }
   .contact-meta {
     grid-template-columns: 1fr;
@@ -960,7 +1105,7 @@ main {
    Founders Dedicated Page Styles
    ========================================================================== */
 .founders-main {
-  background-color: #000000;
+  background-color: var(--ss-navy);
   min-height: 100vh;
   position: relative;
   z-index: 2;
@@ -971,6 +1116,7 @@ main {
   border-radius: 0;
   padding-top: calc(6.5rem + env(safe-area-inset-top, 0px));
   padding-bottom: 0;
+  background-color: var(--ss-navy);
 }
 
 .founders-main .quote {
@@ -984,24 +1130,24 @@ main {
    The Fund Dedicated Page Styles
    ========================================================================== */
 .fund-main {
-  background-color: #ffffff;
+  background-color: var(--ss-ivory);
   min-height: 100vh;
   position: relative;
   z-index: 2;
 }
 
 .fund-page {
-  font-family: "Inter", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #000000;
-  background-color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  color: var(--ss-navy);
+  background-color: var(--ss-ivory);
 }
 
 .fund-page .font-serif {
-  font-family: "Instrument Serif", "Newsreader", Georgia, serif;
+  font-family: "Bodoni Moda", serif;
 }
 
 .fund-page .font-sans {
-  font-family: "Inter", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 .fund-hero-line,
@@ -1026,17 +1172,50 @@ main {
   animation: scrollDownLine 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
+/* ==========================================================================
+   Approach Dedicated Page Styles
+   ========================================================================== */
 .approach-main {
   position: relative;
   z-index: 2;
+  background-color: var(--ss-ivory);
+}
+
+.approach-page {
+  font-family: "Manrope", sans-serif;
+  color: var(--ss-navy);
+  background-color: var(--ss-ivory);
 }
 
 .approach-main .font-serif {
-  font-family: "Instrument Serif", "Newsreader", Georgia, serif;
+  font-family: "Bodoni Moda", serif;
 }
 
 .approach-main .font-sans {
-  font-family: "Inter", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Manrope", sans-serif;
+}
+
+/* ==========================================================================
+   Contact Dedicated Page Styles
+   ========================================================================== */
+.contact-main {
+  position: relative;
+  z-index: 2;
+  background-color: var(--ss-ivory);
+}
+
+.contact-page {
+  font-family: "Manrope", sans-serif;
+  color: var(--ss-navy);
+  background-color: var(--ss-ivory);
+}
+
+.contact-page .font-serif {
+  font-family: "Bodoni Moda", serif;
+}
+
+.contact-page .font-sans {
+  font-family: "Manrope", sans-serif;
 }
 
 @media (prefers-reduced-motion: reduce) {

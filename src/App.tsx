@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import ImmersiveFullscreenNav from "@/components/ui/immersive-full-screen-nav";
+import ApproachBentoSection from "@/components/approach-bento/ApproachBentoSection";
 import Hero from "@/components/Hero";
 import FoundersSection from "@/components/FoundersSection";
 import QuoteSection from "@/components/QuoteSection";
@@ -154,10 +155,10 @@ export default function App() {
     <>
       <ImmersiveFullscreenNav
         agencyName="Sneh Sagar Wealth Management LLP"
-        overlayBg="#000000"
-        headerOpenColor="#FFFFFF"
-        linkColor="#FFFFFF"
-        linkHoverColor="#A3A3A3"
+        overlayBg="#081F3C"
+        headerOpenColor="#F5F1E8"
+        linkColor="#F5F1E8"
+        linkHoverColor="#B87332"
         currentPath={currentPath}
         onNavigate={handleNavigate}
         links={[
@@ -224,38 +225,7 @@ export default function App() {
               </h2>
             </section>
 
-            <section className="philosophy" id="approach" data-section="03">
-              <div className="section-head reveal">
-                <h2 className="serif">
-                  A clearer way
-                  <br />
-                  of seeing value.
-                </h2>
-                <p>Our approach is grounded in research, guided by fundamentals and measured over years—not quarters.</p>
-              </div>
-              <div className="principles">
-                <article className="principle reveal">
-                  <span className="eyebrow">01</span>
-                  <h3>Understand the business</h3>
-                  <p>We begin with the economics of the business: how it creates value, where it is defensible and what could change.</p>
-                </article>
-                <article className="principle reveal">
-                  <span className="eyebrow">02</span>
-                  <h3>Back capable people</h3>
-                  <p>We seek management teams with integrity, intelligent capital allocation and the ambition to build enduring institutions.</p>
-                </article>
-                <article className="principle reveal">
-                  <span className="eyebrow">03</span>
-                  <h3>Buy with a margin of safety</h3>
-                  <p>Price matters. We invest when our estimate of intrinsic value offers room for uncertainty and meaningful upside.</p>
-                </article>
-                <article className="principle reveal">
-                  <span className="eyebrow">04</span>
-                  <h3>Allow time to work</h3>
-                  <p>When the thesis remains intact, patience can become an advantage. We give strong businesses time to compound.</p>
-                </article>
-              </div>
-            </section>
+            <ApproachBentoSection />
 
             <section className="lens">
               <div className="lens-title reveal">
@@ -268,24 +238,64 @@ export default function App() {
               </div>
               <div className="criteria">
                 <article className="criterion reveal">
+                  <div className="criterion-icon-container">
+                    <img
+                      src="/assets/durable-fundamentals-icon.png"
+                      alt="Durable fundamentals"
+                      className="criterion-icon"
+                      width="76"
+                      height="76"
+                      loading="lazy"
+                    />
+                  </div>
                   <div>
                     <h3>Durable fundamentals</h3>
                     <p>Sound balance sheets, resilient cash flows and business models that can hold their ground across cycles.</p>
                   </div>
                 </article>
                 <article className="criterion reveal">
+                  <div className="criterion-icon-container">
+                    <img
+                      src="/assets/room-to-grow-icon.png"
+                      alt="Room to grow"
+                      className="criterion-icon"
+                      width="76"
+                      height="76"
+                      loading="lazy"
+                    />
+                  </div>
                   <div>
                     <h3>Room to grow</h3>
                     <p>Businesses participating in long structural opportunities, with the ability to reinvest capital productively.</p>
                   </div>
                 </article>
                 <article className="criterion reveal">
+                  <div className="criterion-icon-container">
+                    <img
+                      src="/assets/aligned-leadership-icon.png"
+                      alt="Aligned leadership"
+                      className="criterion-icon"
+                      width="76"
+                      height="76"
+                      loading="lazy"
+                    />
+                  </div>
                   <div>
                     <h3>Aligned leadership</h3>
                     <p>Promoters and management teams whose decisions reflect long-term ownership rather than short-term optics.</p>
                   </div>
                 </article>
                 <article className="criterion reveal">
+                  <div className="criterion-icon-container">
+                    <img
+                      src="/assets/meaningful-discount-icon.png"
+                      alt="A meaningful discount"
+                      className="criterion-icon"
+                      width="76"
+                      height="76"
+                      loading="lazy"
+                    />
+                  </div>
                   <div>
                     <h3>A meaningful discount</h3>
                     <p>A gap between market price and our assessment of value, supported by research rather than sentiment.</p>

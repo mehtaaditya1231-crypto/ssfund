@@ -120,12 +120,12 @@ export default function ImmersiveFullscreenNav({
       </FullscreenNav>
 
       <main className="flex h-screen items-center justify-center bg-white max-md:px-[7vw] text-center">
-        <div className="max-w-5xl mx-auto text-center text-black">
+        <div className="max-w-5xl mx-auto text-center text-[#081F3C]">
 
 
 
           {/* Heading */}
-          <h1 className="text-[7vw] max-md:text-[9vw]">
+          <h1 className="text-[7vw] max-md:text-[9vw] font-serif">
             Immersive Full Screen Navigation
           </h1>
 
@@ -136,13 +136,13 @@ export default function ImmersiveFullscreenNav({
 
           {/* Buttons */}
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 max-md:text-[4.5vw] max-[1025px]:text-[3vw]">
-            <button className=" rounded-full max-md:min-w-[45vw] bg-black text-white font-medium ">
+            <button className=" rounded-full max-md:min-w-[45vw] bg-[#081F3C] text-white hover:bg-[#B87332] transition-colors font-medium ">
               <a href={"/effects/navigation/immersive-full-screen-nav"} className="px-7 py-3 block w-full">
               Read Article
               </a>
             </button>
 
-            <button className=" rounded-full max-md:min-w-[45vw] border border-black ">
+            <button className=" rounded-full max-md:min-w-[45vw] border border-[#081F3C]/35 text-[#081F3C] hover:bg-[#081F3C] hover:text-white transition-colors ">
              <a href={"/effects"} className="px-7 py-3 block w-full">
               Explore Platform
              </a>

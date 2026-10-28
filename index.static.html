@@ -9,18 +9,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231b2e2a'/%3E%3Cpath d='M18 40V23h8c6 0 10 3 10 8s-4 9-10 9h-8Zm7-5h2c2 0 4-1 4-4 0-2-2-3-4-3h-2v7Zm15 5V23h6v17h-6Z' fill='%23f4f0e7'/%3E%3C/svg%3E">
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23081F3C'/%3E%3Cpath d='M18 40V23h8c6 0 10 3 10 8s-4 9-10 9h-8Zm7-5h2c2 0 4-1 4-4 0-2-2-3-4-3h-2v7Zm15 5V23h6v17h-6Z' fill='%23F5F1E8'/%3E%3C/svg%3E">
   <style>
     :root {
-      --paper: #f4f0e7;
-      --ink: #16211f;
-      --pine: #1b2e2a;
-      --sage: #b9c1a9;
-      --rust: #b45e3f;
-      --line: rgba(22, 33, 31, .18);
+      --ss-navy: #081F3C;
+      --ss-copper: #B87332;
+      --ss-ivory: #F5F1E8;
+      --ss-white: #FFFFFF;
+
+      --ss-navy-80: rgba(8, 31, 60, 0.80);
+      --ss-navy-65: rgba(8, 31, 60, 0.65);
+      --ss-navy-20: rgba(8, 31, 60, 0.20);
+      --ss-navy-12: rgba(8, 31, 60, 0.12);
+
+      --ss-copper-20: rgba(184, 115, 50, 0.20);
+      --ss-copper-12: rgba(184, 115, 50, 0.12);
+
+      --ss-white-70: rgba(255, 255, 255, 0.70);
+      --ss-white-20: rgba(255, 255, 255, 0.20);
+
+      --paper: #F5F1E8;
+      --ink: #081F3C;
+      --pine: #081F3C;
+      --sage: #B87332;
+      --rust: #B87332;
+      --line: rgba(8, 31, 60, 0.12);
       --pad: clamp(1.25rem, 4vw, 4.5rem)
     }
 
@@ -41,7 +57,7 @@
       margin: 0;
       background-color: #ffffff;
       color: var(--ink);
-      font-family: "DM Sans", sans-serif;
+      font-family: "Manrope", sans-serif;
       font-size: 16px;
       line-height: 1.5;
       overflow-x: hidden
@@ -64,7 +80,7 @@
     }
 
     .serif {
-      font-family: "Newsreader", Georgia, serif;
+      font-family: "Bodoni Moda", Georgia, serif;
       font-weight: 400
     }
 
@@ -452,25 +468,38 @@
       font-weight: 400
     }
 
-    .criteria {
-      counter-reset: item
-    }
-
     .criterion {
-      counter-increment: item;
       padding: 2.5rem 0;
       border-top: 1px solid rgba(0, 0, 0, .16);
       display: grid;
-      grid-template-columns: 50px 1fr;
-      gap: 1rem
+      grid-template-columns: 76px 1fr;
+      gap: 1.5rem;
+      align-items: start;
     }
 
     .criterion:before {
-      content: "0" counter(item);
-      font-size: .75rem;
-      letter-spacing: .1em;
-      color: #000000;
-      padding-top: .4rem
+      content: none;
+      display: none;
+    }
+
+    .criterion-icon-container {
+      width: 76px;
+      height: 76px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .criterion-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .criterion h3 {
@@ -721,21 +750,41 @@
       color: #000000
     }
 
+    .footer-contact-btn,
     .contact .round-link {
-      border-color: #000000;
-      color: #000000;
-      background-color: transparent
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: auto;
+      min-width: 180px;
+      height: 54px;
+      padding: 0 28px;
+      border-radius: 14px;
+      background-color: transparent;
+      border: 1px solid rgba(245, 241, 232, 0.65);
+      color: #F5F1E8;
+      font-family: var(--font-sans, "Manrope", sans-serif);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      white-space: nowrap;
+      justify-self: end;
+      transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
     }
 
+    .footer-contact-btn:hover,
     .contact .round-link:hover {
-      background-color: #000000;
-      color: #FFFFFF;
-      border-color: #000000
+      background-color: #F5F1E8;
+      color: #081F3C;
+      border-color: #F5F1E8;
+      transform: translateY(-2px);
     }
 
     .contact-meta {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
       padding: clamp(3rem, 5vw, 4.5rem) 0 2.5rem;
       border-top: 1px solid rgba(0, 0, 0, .16);
@@ -1008,6 +1057,16 @@
         position: static
       }
 
+      .criterion {
+        grid-template-columns: 60px 1fr;
+        gap: 1.25rem;
+      }
+
+      .criterion-icon-container {
+        width: 60px;
+        height: 60px;
+      }
+
       .team-head {
         grid-template-columns: 1fr
       }
@@ -1117,7 +1176,7 @@
   </div>
   <div class="cursor-orb" aria-hidden="true">View</div>
   <header id="header">
-    <a class="brand" href="#top"><span class="brand-mark">SS</span><span>Sneh Sagar Wealth Management LLP</span></a>
+    <a class="brand" href="#top"><img src="/assets/sneh-sagar-logo-navy.png" alt="Sneh Sagar Wealth Management LLP" style="height: 40px; width: auto; object-fit: contain;"><span>Sneh Sagar Wealth Management LLP</span></a>
     <nav aria-label="Primary navigation">
       <span class="nav-progress" aria-live="polite">01 — 05</span><a href="#about">The Fund</a><a
         href="#approach">Approach</a><a href="#team">People</a><a class="nav-cta" data-cursor="Open"
@@ -1187,6 +1246,9 @@
       </div>
       <div class="criteria">
         <article class="criterion reveal">
+          <div class="criterion-icon-container">
+            <img src="/assets/durable-fundamentals-icon.png" alt="Durable fundamentals" class="criterion-icon" width="76" height="76" loading="lazy">
+          </div>
           <div>
             <h3>Durable fundamentals</h3>
             <p>Sound balance sheets, resilient cash flows and business models that can hold their ground across cycles.
@@ -1194,6 +1256,9 @@
           </div>
         </article>
         <article class="criterion reveal">
+          <div class="criterion-icon-container">
+            <img src="/assets/room-to-grow-icon.png" alt="Room to grow" class="criterion-icon" width="76" height="76" loading="lazy">
+          </div>
           <div>
             <h3>Room to grow</h3>
             <p>Businesses participating in long structural opportunities, with the ability to reinvest capital
@@ -1201,6 +1266,9 @@
           </div>
         </article>
         <article class="criterion reveal">
+          <div class="criterion-icon-container">
+            <img src="/assets/aligned-leadership-icon.png" alt="Aligned leadership" class="criterion-icon" width="76" height="76" loading="lazy">
+          </div>
           <div>
             <h3>Aligned leadership</h3>
             <p>Promoters and management teams whose decisions reflect long-term ownership rather than short-term optics.
@@ -1208,6 +1276,9 @@
           </div>
         </article>
         <article class="criterion reveal">
+          <div class="criterion-icon-container">
+            <img src="/assets/meaningful-discount-icon.png" alt="A meaningful discount" class="criterion-icon" width="76" height="76" loading="lazy">
+          </div>
           <div>
             <h3>A meaningful discount</h3>
             <p>A gap between market price and our assessment of value, supported by research rather than sentiment.</p>
@@ -1253,15 +1324,12 @@
       <div class="contact-top reveal">
         <div><span class="eyebrow">Start a conversation</span>
           <h2 class="serif">Let’s talk<br>value.</h2>
-        </div><a class="round-link" href="mailto:info@ssvalueplus.com">Write to us <span
+        </div><a class="footer-contact-btn" href="mailto:info@ssvalueplus.com">Write to us <span
             aria-hidden="true">↗</span></a>
       </div>
       <div class="contact-meta reveal">
         <div><span class="eyebrow">Email</span>
           <p><a href="mailto:info@ssvalueplus.com">info@ssvalueplus.com</a></p>
-        </div>
-        <div><span class="eyebrow">Minimum investment</span>
-          <p>₹1 crore</p>
         </div>
         <div><span class="eyebrow">Focus</span>
           <p>Indian public equities</p>
