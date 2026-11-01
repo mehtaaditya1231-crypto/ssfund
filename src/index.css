@@ -118,10 +118,11 @@ button, input, textarea {
 }
 
 /* ==========================================================================
-   Hero Section — Warm Ivory (#F5F1E8) & Sneh Sagar Navy (#081F3C)
+   Hero Section — Full-bleed landscape background with animated overlays
    ========================================================================== */
 .hero {
-  background-color: var(--ss-ivory);
+  /* Background provided by hero-bg-img; keep fallback colour */
+  background-color: var(--ss-navy);
   color: var(--ss-navy);
   min-height: 100svh;
   display: flex;
@@ -130,19 +131,69 @@ button, input, textarea {
   justify-content: center;
   text-align: center;
   position: relative;
+  overflow: hidden;
   z-index: 2;
   /* Fixed navbar is ~70px. Generous padding maintains comfortable optical centering */
   padding: calc(4.5rem + env(safe-area-inset-top, 0px)) var(--pad) 4.5rem;
   box-sizing: border-box;
 }
 
-.hero:before,
-.hero:after {
-  display: none !important;
-  content: none !important;
+/* Background image layer */
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  will-change: transform;
+  pointer-events: none;
 }
 
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  will-change: transform;
+  /* Scale-up buffer so drift never shows edges */
+  transform-origin: center center;
+}
+
+/* Very subtle warm-ivory overlay — max 0.07 opacity for text contrast */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(245, 241, 232, 0.06);
+  pointer-events: none;
+}
+
+/* SVG contour lines + copper curve */
+.hero-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Fine monochromatic grain texture */
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+/* Hero content sits above all bg layers */
 .hero-content {
+  position: relative;
+  z-index: 4;
   width: 100%;
   max-width: 1050px;
   display: flex;
@@ -152,6 +203,12 @@ button, input, textarea {
   text-align: center;
   /* Optically centered, accounting for top fixed navbar */
   transform: translateY(-1.25rem);
+}
+
+.hero:before,
+.hero:after {
+  display: none !important;
+  content: none !important;
 }
 
 .hero-label {
@@ -944,6 +1001,10 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  /* On mobile, favour the important area of the landscape image */
+  .hero-bg-img {
+    object-position: 45% center;
   }
   .hero-content {
     transform: translateY(-0.75rem);
